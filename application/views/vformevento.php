@@ -1,13 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
- ?>
-<!DOCTYPE html>
-<html>
-<head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body>
 	<div class="content-wrapper">
 
 
