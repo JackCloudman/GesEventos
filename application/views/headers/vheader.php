@@ -133,6 +133,7 @@ desired effect
         <li class="header">Accesos directos</li>
         <!-- Optionally, you can add icons to the links -->
         <li><a href="https://github.com/JackCloudman"><i class="fa fa-github"></i> <span>JackCloudman</span></a></li>
+        <li><a href="NuevoEvento"><i class="fa fa-calendar-plus-o"></i> <span>Nuevo Evento</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

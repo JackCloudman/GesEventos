@@ -5,7 +5,7 @@ class NuevoEvento extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('headers/vheader',array("title"=>"hola mundo"));
-		$this->load->view('vdashboard');
+		$this->load->view('vformevento');
 		$this->load->view('footers/vfooter');
 	}
 }
