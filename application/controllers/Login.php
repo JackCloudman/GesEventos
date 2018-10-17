@@ -9,8 +9,7 @@ class Login extends CI_Controller {
 			$this->load->view('vlogin');	
 		}
 		else{
-			echo "Bienvenido ".$user->nombre;
-			echo "<br><a href='login/salir'>Salir</a>";
+			redirect('dashboard');
 		}
 		return;
 		
@@ -35,6 +34,6 @@ class Login extends CI_Controller {
 	}
 	public function salir(){
 		$this->session->unset_userdata('user');
-		echo "Hasta luego";
+		redirect('dashboard');
 	}
 }
