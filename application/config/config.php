@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'GesEventos';
+$config['base_url'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -248,6 +248,7 @@ $config['log_path'] = '';
 | Note: Leaving it blank will default to 'php'.
 |
 */
+$config['sess_encrypt_cookie']	= TRUE;
 $config['log_file_extension'] = '';
 
 /*

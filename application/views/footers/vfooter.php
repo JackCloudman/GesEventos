@@ -1,3 +1,5 @@
+<!-- bootstrap datepicker -->
+<script src="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
  <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
@@ -91,5 +93,14 @@
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
+  <script type="text/javascript">
+    $( document ).ready(
+      $(function () {
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    })
+  }));
+  </script>
 </body>
 </html>
