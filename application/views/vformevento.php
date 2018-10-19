@@ -27,7 +27,7 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input class="form-control pull-right" id="datepicker" type="text">
+                  <input class="form-control pull-right datepicker" type="text">
                 </div>
 
 
@@ -45,7 +45,7 @@
                 </div>
                 <label class="o">Hora de Inicio:</label>
                   <div class="input-group">
-                    <input class="form-control timepicker" type="text">
+                    <input id="timepicker" class="form-control timepicker" type="text">
 
                     <div class="input-group-addon">
                       <i class="fa fa-clock-o"></i>

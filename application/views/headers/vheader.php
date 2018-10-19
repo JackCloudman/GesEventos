@@ -24,6 +24,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="assets/dist/css/skins/skin-blue.min.css">
+   <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="assets/plugins/timepicker/bootstrap-timepicker.min.css">
 <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
