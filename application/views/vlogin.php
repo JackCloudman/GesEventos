@@ -244,7 +244,7 @@ i.fa{
 		e.preventDefault();
 	});
 	$("#login-form").submit(function(e){
-		event.preventDefault();
+		e.preventDefault();
 		//return;
  		$.ajax({
  		url: "login/iniciar",
