@@ -251,8 +251,10 @@ i.fa{
  		type: "post",
  		data: $(this).serialize(),
  		success:function(data){
-    		alert(data);
-    		location.reload();
+ 			alert(data);
+ 			if(data!="Usuario o contraseña incorrectos"){
+ 				location.reload();
+ 			}
             }
  		});
  	})
