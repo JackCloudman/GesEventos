@@ -163,10 +163,10 @@ i.fa{
 						</div>
 						<div class="row">
 							<div class="col-xs-6">
-								<a href="#" class="active" id="login-form-link">Login</a>
+								<a href="#" class="active" id="login-form-link">Iniciar</a>
 							</div>
 							<div class="col-xs-6">
-								<a href="#" id="register-form-link">Register</a>
+								<a href="#" id="register-form-link">Crear cuenta</a>
 							</div>
 						</div>
 						<hr>
@@ -184,7 +184,7 @@ i.fa{
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Iniciar">
 											</div>
 										</div>
 									</div>
@@ -200,6 +200,15 @@ i.fa{
 								</form>
 								<form id="register-form" action="registrar" method="post" role="form" style="display: none;">
 									<div class="form-group">
+										<input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="appat" id="appat" tabindex="1" class="form-control" placeholder="Primer apellido" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="apmat" id="apmat" tabindex="1" class="form-control" placeholder="Segundo apellido" value="">
+									</div>
+									<div class="form-group">
 										<input type="text" name="username" id="regusername" tabindex="1" class="form-control" placeholder="Username" value="">
 									</div>
 									<div class="form-group">
@@ -214,7 +223,7 @@ i.fa{
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
 											</div>
 										</div>
 									</div>
@@ -258,7 +267,20 @@ i.fa{
             }
  		});
  	})
- 
+ 	$("#register-form").submit(function(e){
+		e.preventDefault();
+ 		$.ajax({
+ 		url: "register",
+ 		type: "post",
+ 		data: $(this).serialize(),
+ 		success:function(data){
+ 			alert(data+"\nInicia ahora sesion!");
+ 			if(data=="Registro exitoso!"){
+ 				location.reload();
+ 			}
+            }
+ 		});
+ 	})
  	});
 
 	</script>
