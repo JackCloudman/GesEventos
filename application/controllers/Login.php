@@ -34,11 +34,7 @@ class Login extends CI_Controller {
 				return;
 			}
 			$name = $data["nombre"]." ".$data["appat"]." ".$data["apmat"];
-			$this->session->set_userdata('user',(object)Array(
-				"nombre" => $name,
-				"nivel"  => $data["nivel_permiso"]
-
-				));
+			$this->session->set_userdata('user',(object)Array("nombre"=>$name));
 			echo "Bienvenido ".$name;
 			return;
 		}
