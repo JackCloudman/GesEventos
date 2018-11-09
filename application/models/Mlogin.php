@@ -7,7 +7,7 @@ class Mlogin extends CI_Model
     public function ingresar($username=null,$pass=null){
         if(!$username || !$pass)
             return Array();
-        $this->db->select('id_usuario,username,nombre,appat,apmat,correo,password'); 
+        $this->db->select('id_usuario,username,nombre,appat,apmat,correo,password,nivel_permiso'); 
         $this->db->from('Usuarios');
         $this->db->where('username',$username);
         $user = $this->db->get()->result_array();
