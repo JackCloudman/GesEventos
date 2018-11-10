@@ -10,13 +10,16 @@ class Musuario extends CI_Model{
             return false;
         return true;
     }
-    public function register($nombre,$appat,$apmat,$username,$email,$password){
+    public function register($nombre,$appat,$apmat,$username,$email,$password,$ocupacion,$edad,$sexo){
         $data = Array("nombre"=>$nombre,
                       "appat"=>$appat,
                       "apmat"=>$apmat,
                       "username"=>$username,
                       "correo"=>$email,
-                      "password"=>password_hash($password, PASSWORD_DEFAULT));
+                      "password"=>password_hash($password, PASSWORD_DEFAULT),
+                      "ocupacion" => $ocupacion,
+                      "edad" => $edad,
+                      "sexo" => $sexo);
         $result = $this->db->insert('Usuarios', $data);
         return $result;
     }

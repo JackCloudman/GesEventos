@@ -221,6 +221,20 @@ i.fa{
 										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
 									<div class="form-group">
+										<input type="text" name="ocupacion" id="ocupa" tabindex="1" class="form-control" placeholder="Ocupacion: Estudiante / Maestro / Administrativo" value="">
+									</div>
+									<div class="form-group">
+										<input type="number" name="edad" id="edad" tabindex="1" class="form-control" placeholder="Edad" value="">
+									</div>
+									<div class="checkbox-inline">
+									  <input  type="radio" name="sexo" value ="H">
+									  <label for="materialGroupExample1">Hombre</label>
+									</div>
+									<div class="checkbox-inline">
+									  <input type="radio" name="sexo" value ="M">
+									  <label for="materialGroupExample2">Mujer</label>
+									</div>
+									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
 												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
