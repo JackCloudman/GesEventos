@@ -13,29 +13,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>GesEventos | <?=$title?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="assets/bower_components/Ionicons/css/ionicons.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="assets/dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/AdminLTE.min.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="assets/dist/css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/skin-blue.min.css">
    <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
 
   <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="assets/plugins/timepicker/bootstrap-timepicker.min.css">
-<script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
+<script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
-<script src="assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="assets/dist/js/adminlte.min.js"></script>
+<script src="<?=base_url()?>assets/dist/js/adminlte.min.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -74,7 +74,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="<?=base_url()?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>ES</span>
       <!-- logo for regular state and mobile devices -->
@@ -95,34 +95,29 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="assets/dist/img/escom.png" class="user-image" alt="User Image">
+              <img src="<?=base_url()?>assets/dist/img/escom.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">ESCOM - IPN</span>
+              <span class="hidden-xs"> <?=$name?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="assets/dist/img/escom.png" class="img-circle" alt="User Image">
+                <img src="<?=base_url()?>assets/dist/img/escom.png" class="img-circle" alt="User Image">
 
                 <p>
-                  ESCOM - IPN
-                  <small>Miembro desde 2018</small>
+                   <?=$name?>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?=base_url()?>login/salir" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?=base_url()?>login/salir" class="btn btn-default btn-flat">Cerrar sesion</a>
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -138,9 +133,26 @@ desired effect
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Accesos directos</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="https://github.com/JackCloudman"><i class="fa fa-github"></i> <span>JackCloudman</span></a></li>
-        <li><a href="NuevoEvento"><i class="fa fa-calendar-plus-o"></i> <span>Nuevo Evento</span></a></li>
+        <li class="treeview">
+          <a href="/">
+            <i class="fa fa-graduation-cap"></i>
+            <span>Escuelas</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url()?>Superadmin/escuelas/crear"><i class="fa fa-plus"></i> Nueva escuela</a></li>
+            <li><a href="<?=base_url()?>Superadmin/escuelas"><i class="fa fa-list"></i> Lista de escuelas</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="/">
+            <i class="fa fa-users"></i>
+            <span>Usuarios</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-plus"></i> Nuevo usuario</a></li>
+            <li><a href="<?=base_url()?>Superadmin/usuarios"><i class="fa fa-list"></i> Lista de usuarios</a></li>
+          </ul>
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
