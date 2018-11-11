@@ -1,0 +1,53 @@
+
+<head>
+  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+    <script>
+      $(document).ready(function(){
+          $('#DiagramaObjCU1').click(function(){
+            $("#contenido").load("/GesEventos-master/application/views/Documentacion/diaCU1.html");
+                         });
+
+          $('#DiagramaObjCU2').click(function(){
+            $("#contenido").load("/GesEventos-master/application/views/Documentacion/diaCU2.html");
+                         });
+
+          $('#DiagramaObjCU3').click(function(){
+            $("#contenido").load("/GesEventos-master/application/views/Documentacion/diaCU3.html");
+                         });
+
+          $('#DiagramaClases').click(function(){
+            $("#contenido").load("/GesEventos-master/application/views/Documentacion/diaClases.html");
+                         });
+
+          /*$('#Jython').click(function(){
+            $("#contenido").load("c_jython.html");
+                         });
+
+          $('#Jython').click(function(){
+            $("#contenido").load("c_jython.html");
+                         });*/
+                    });
+  </script>
+</head>
+
+    <a href="#" id="DiagramaClases">Diagrama de Clases</a><br/>
+    <a href="#" id="DiagramaObjCU1">Diagrama de Objetos CU 1</a><br/>
+    <a href="#" id="DiagramaObjCU2">Diagrama de Objetos CU 2</a><br/>
+    <a href="#" id="DiagramaObjCU3">Diagrama de Objetos CU 3</a><br/>
+
+    <section class="content-header">
+      <h1>
+        Diagrama de Casos de Uso
+      </h1>
+    </section>
+    <section class="content container-fluid">
+      <div class="row" style="overflow:auto;">
+        <p align="center">
+        	<img src="/GesEventos-master/assets/dist/img/Diagrama_CU.png" width="70%" height="70%" alt="Diagrama de CU">
+        </p> 
+      </div>
+      <div class="row">
+        <br/><br/><br/>
+        <a href="DocDiagrama" class="big-box-footer" >Regresar</a>
+      </div>
+    </section>
