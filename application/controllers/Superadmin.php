@@ -5,32 +5,25 @@ class Superadmin extends CI_Controller {
   	function __construct()
   	{
   		parent::__construct();
- 		$usuario = $this->session->userdata("user");
-		if(!$usuario){
+ 		$this->usuario = $this->session->userdata("user");
+		if(!$this->usuario){
 			redirect('dashboard');	
 		}
-		if($usuario->nivel<3){
-			echo $usuario->nivel;
-			return;
+		if($this->usuario->nivel<3){
 			redirect('dashboard');	
 		}
 		$this->load->model('msuperadmin');
+		$this->load->model('musuario');
   	}
 	public function index(){
-		/*
-		Prueba de la base de datos para insertar escuelas, usuario y administrador
-		$escuela = Array(
-                  "nombre"  => "Escuela Superior de Computo",
-                  "dir1"    => "Calle 1",
-                  "dir2"    => "Calle 2",
-                  );
-		$admin = Array(
-                    "nombre"        => "jack",
-                    "correo"        => "jack@jack.com",
-                    "password"      => "1234",
-                    );
-		$result = $this->msuperadmin->crearEscuela($escuela,$admin);
-		echo "Tienes permiso xd, resultado: ";
-		print_r($result);*/
+		$usuario = $this->usuario;
+		$name = $this->musuario->getName($usuario->id_usuario);
+
+		$data = array("title"=>"Super Admin Dashboard");
+		$data["name"] = $name["nombre"]." ".$name["appat"];
+
+		$this->load->view("headers/vheadersadmin",$data);
+		$this->load->view('vdashboardsa');
+        $this->load->view('footers/vfooter');
 	}
 }

@@ -23,5 +23,14 @@ class Musuario extends CI_Model{
         $result = $this->db->insert('Usuarios', $data);
         return $result;
     }
+    public function getName($uid){
+      $this->db->select('nombre,appat,apmat');
+      $this->db->from('Usuarios');
+      $this->db->where('id_usuario',$uid);
+      $name = $this->db->get()->row_array();
+      if(!$name)
+        return Array("nombre"=>"INDEFINIDO","appat"=>"INDEFINIDO","apmat"=>"INDEFINIDO");
+      return $name;
+    }
   
 }
