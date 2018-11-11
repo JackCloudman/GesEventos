@@ -9,11 +9,18 @@ class Dashboard extends CI_Controller {
         if(!$user){
             redirect('login');
         }
+        $this->load->model('mevento');
     }
     public function index()
     {
         $this->load->view('headers/vheader',array("title"=>"hola mundo"));
         $this->load->view('vdashboard');
         $this->load->view('footers/vfooter');
+    }
+    public function lista_eventos()
+    {
+        $datos = $this->mevento->infoPorEvento();
+        print_r($datos);
+        return $datos;
     }
 }
