@@ -15,7 +15,7 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>4</h3>
+              <h3><?=$contador["escuelas"]?></h3>
 
               <p>Escuelas registradas</p>
             </div>
@@ -29,7 +29,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>350</h3>
+              <h3><?=$contador["eventos"]?></h3>
 
               <p>Eventos registrados</p>
             </div>
@@ -43,7 +43,7 @@
           <!-- small box -->
           <div class="small-box bg-teal">
             <div class="inner">
-              <h3>54</h3>
+              <h3><?=$contador["usuarios"]?></h3>
 
               <p>Usuarios registrados</p>
             </div>

@@ -14,16 +14,32 @@ class Superadmin extends CI_Controller {
 		}
 		$this->load->model('msuperadmin');
 		$this->load->model('musuario');
+		$this->load->model('mescuela');
   	}
 	public function index(){
 		$usuario = $this->usuario;
+		$contadorAll = $this->msuperadmin->countAll();
 		$name = $this->musuario->getName($usuario->id_usuario);
 
 		$data = array("title"=>"Super Admin Dashboard");
 		$data["name"] = $name["nombre"]." ".$name["appat"];
+		$data["contador"] = $contadorAll;
 
 		$this->load->view("headers/vheadersadmin",$data);
 		$this->load->view('vdashboardsa');
+        $this->load->view('footers/vfooter');
+	}
+	public function escuelas(){
+		$usuario = $this->usuario;
+		$name = $this->musuario->getName($usuario->id_usuario);
+		$escuelas = $this->mescuela->getEscuelas();
+
+		$data = array("title"=>"Super Admin Dashboard");
+		$data["name"] = $name["nombre"]." ".$name["appat"];
+		$data["escuelas"] = $escuelas;
+
+		$this->load->view("headers/vheadersadmin",$data);
+		$this->load->view('vdashboardescuela');
         $this->load->view('footers/vfooter');
 	}
 }

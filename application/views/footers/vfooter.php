@@ -1,7 +1,7 @@
 <!-- bootstrap datepicker -->
-<script src="assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <!-- bootstrap time picker -->
-<script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+<script src="<?=base_url()?>assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
  <!-- /.content-wrapper -->
 
   <!-- Main Footer -->

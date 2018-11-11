@@ -35,5 +35,17 @@ class Msuperadmin extends CI_Model{
       $result = $this->db->insert("Administradores",$admin);
       return $result==true;
     }
+    public function countAll(){
+      $usuarios = $this->db->query("select count(*) numero from Usuarios");
+      $eventos= $this->db->query("select count(*) numero from Eventos");
+      $escuelas = $this->db->query("select count(*) numero from Escuelas");
+
+      $data['usuarios'] = $usuarios->result()[0]->numero;
+      $data['eventos'] = $eventos->result()[0]->numero;
+      $data['escuelas'] = $escuelas->result()[0]->numero;
+
+      return $data;
+       
+    }
   
 }
