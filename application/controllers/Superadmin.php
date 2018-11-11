@@ -29,7 +29,7 @@ class Superadmin extends CI_Controller {
 		$this->load->view('vdashboardsa');
         $this->load->view('footers/vfooter');
 	}
-	public function escuelas(){
+	public function escuelas_index(){
 		$usuario = $this->usuario;
 		$name = $this->musuario->getName($usuario->id_usuario);
 		$escuelas = $this->mescuela->getEscuelas();
@@ -40,6 +40,32 @@ class Superadmin extends CI_Controller {
 
 		$this->load->view("headers/vheadersadmin",$data);
 		$this->load->view('vdashboardescuela');
+        $this->load->view('footers/vfooter');
+	}
+	public function escuelas_crear(){
+		$usuario = $this->usuario;
+		$name = $this->musuario->getName($usuario->id_usuario);
+		$name = $this->musuario->getName($usuario->id_usuario);
+		$escuelas = $this->mescuela->getEscuelas();
+
+		$data = array("title"=>"Super Admin Dashboard");
+		$data["name"] = $name["nombre"]." ".$name["appat"];
+
+		$this->load->view("headers/vheadersadmin",$data);
+		$this->load->view('vformescuela');
+        $this->load->view('footers/vfooter');
+	}
+	public function usuarios(){
+		$usuario = $this->usuario;
+		$name = $this->musuario->getName($usuario->id_usuario);
+		$usuarios = $this->msuperadmin->getUsuarios();
+
+		$data = array("title"=>"Super Admin Dashboard");
+		$data["name"] = $name["nombre"]." ".$name["appat"];
+		$data["usuarios"] = $usuarios;
+
+		$this->load->view("headers/vheadersadmin",$data);
+		$this->load->view('vdashboardusuario');
         $this->load->view('footers/vfooter');
 	}
 }

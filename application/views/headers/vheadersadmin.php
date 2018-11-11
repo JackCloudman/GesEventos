@@ -139,7 +139,7 @@ desired effect
             <span>Escuelas</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-plus"></i> Nueva escuela</a></li>
+            <li><a href="<?=base_url()?>Superadmin/escuelas/crear"><i class="fa fa-plus"></i> Nueva escuela</a></li>
             <li><a href="<?=base_url()?>Superadmin/escuelas"><i class="fa fa-list"></i> Lista de escuelas</a></li>
           </ul>
         </li>
@@ -150,7 +150,7 @@ desired effect
           </a>
           <ul class="treeview-menu">
             <li><a href="#"><i class="fa fa-plus"></i> Nuevo usuario</a></li>
-            <li><a href="#"><i class="fa fa-list"></i> Lista de usuarios</a></li>
+            <li><a href="<?=base_url()?>Superadmin/usuarios"><i class="fa fa-list"></i> Lista de usuarios</a></li>
           </ul>
         </li>
       </ul>

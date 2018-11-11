@@ -47,5 +47,10 @@ class Msuperadmin extends CI_Model{
       return $data;
        
     }
+    public function getUsuarios(){
+      $this->db->select('id_usuario,username,nombre,appat,apmat,correo');
+      $this->db->from('Usuarios');
+      return $this->db->get()->result();
+    }
   
 }
