@@ -20,7 +20,7 @@ class Mevento extends CI_Model
 	{
 		$this->db->select('nombre_evento, fecha, escuela, hora_inicio');
 		$this->db->from('eventos');
-		return $this->db->get()->result_array(); 
+		return $this->db->get()->result(); 
 
 	}
 	
