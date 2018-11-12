@@ -5,14 +5,16 @@ class Dashboard extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->library('session');
-        $user = $this->session->userdata("user");
-        if(!$user){
+        $usuario = $this->session->userdata("user");
+        if(!$usuario){
             redirect('login');
         }
+        if($usuario->nivel==3)
+            redirect('Superadmin');
     }
     public function index()
     {
-        $this->load->view('headers/vheader',array("title"=>"hola mundo"));
+        $this->load->view('headers/vheader',array("title"=>"Dashboard general"));
         $this->load->view('vdashboard');
         $this->load->view('footers/vfooter');
     }

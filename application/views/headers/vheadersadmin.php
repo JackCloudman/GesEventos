@@ -74,7 +74,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="<?=base_url()?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>ES</span>
       <!-- logo for regular state and mobile devices -->
@@ -97,7 +97,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="<?=base_url()?>assets/dist/img/escom.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">ESCOM - IPN</span>
+              <span class="hidden-xs"> <?=$name?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -105,24 +105,19 @@ desired effect
                 <img src="<?=base_url()?>assets/dist/img/escom.png" class="img-circle" alt="User Image">
 
                 <p>
-                  ESCOM - IPN
-                  <small>Miembro desde 2018</small>
+                   <?=$name?>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?=base_url()?>login/salir" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?=base_url()?>login/salir" class="btn btn-default btn-flat">Cerrar sesion</a>
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -138,9 +133,26 @@ desired effect
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Accesos directos</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="https://github.com/JackCloudman"><i class="fa fa-github"></i> <span>JackCloudman</span></a></li>
-        <li><a href="NuevoEvento"><i class="fa fa-calendar-plus-o"></i> <span>Nuevo Evento</span></a></li>
+        <li class="treeview">
+          <a href="/">
+            <i class="fa fa-graduation-cap"></i>
+            <span>Escuelas</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url()?>Superadmin/escuelas/crear"><i class="fa fa-plus"></i> Nueva escuela</a></li>
+            <li><a href="<?=base_url()?>Superadmin/escuelas"><i class="fa fa-list"></i> Lista de escuelas</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="/">
+            <i class="fa fa-users"></i>
+            <span>Usuarios</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-plus"></i> Nuevo usuario</a></li>
+            <li><a href="<?=base_url()?>Superadmin/usuarios"><i class="fa fa-list"></i> Lista de usuarios</a></li>
+          </ul>
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
