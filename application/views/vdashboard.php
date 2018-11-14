@@ -67,28 +67,29 @@
             <!-- /.box-header -->
             <div class="box-body">
              <div class="row">
+          <?php foreach($datos as $datos){?>
           <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-black" style="background: url('assets/dist/img/photo1.png') center center;">
-              <h3 class="widget-user-username">Entrega reconocimientos</h3>
-              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> Centro Cultural Jaime Torres Bodet</h5>
+              <h3 class="widget-user-username"><?php echo $datos->nombre_evento?></h3>
+              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> <?php echo $datos->escuela?></h5>
             </div>
             <div class="box-footer">
               <div class="row">
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">300</h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i> Invitaciones</span>
+                    <h5 class="description-header"><h3><?php echo $datos->fecha?></h3></h5>
+                    <span class="description-text"><h4><i class="fa fa-clock-o"> </i></i> <?php echo $datos->hora_inicio?></h4></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">124</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
+                    <h5 class="description-header">Descripción</h5>
+                    <span class="description-text"></i>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -100,6 +101,7 @@
           </div>
           <!-- /.widget-user -->
         </div>
+      <?php }?>
           <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
@@ -112,16 +114,16 @@
               <div class="row">
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">115</h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i> Invitaciones</span>
+                    <h5 class="description-header"><h3>11-09-1900</h3></h5>
+                    <span class="description-text"><h4><i class="fa fa-clock-o"></i> 9:50</h4> </span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">84</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
+                    <h5 class="description-header">Descripcion</h5>
+                    <span ><i></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -132,106 +134,7 @@
           </div>
           <!-- /.widget-user -->
         </div>
-          <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('assets/dist/img/photo3.jpg') center center;">
-              <h3 class="widget-user-username">Vista a la BUAP</h3>
-              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> BUAP</h5>
-            </div>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">420</h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i> Invitaciones</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">312</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.widget-user -->
-        </div>
-          <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('assets/dist/img/photo4.jpg') center center;">
-              <h3 class="widget-user-username">Conferencia Microsoft</h3>
-              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> ESCOM - Sala 14</h5>
-            </div>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">120</h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i> Invitaciones</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">57</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.widget-user -->
-        </div>
-          <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-black" style="background: url('https://i.imgur.com/QQsuibl.jpg?fb') center center;">
-              <h3 class="widget-user-username">Cumpleaños Haruhi!!</h3>
-              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> Brigada SOS</h5>
-            </div>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">1000</h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i> Invitaciones</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">999</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
-          <!-- /.widget-user -->
-        </div>
-
+          
       </div>
             </div>
             <!-- ./box-body -->
