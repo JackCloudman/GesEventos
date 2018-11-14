@@ -89,7 +89,7 @@
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
                     <h5 class="description-header">Descripción</h5>
-                    <span class="description-text"></i>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                    <span class = "text"></i><?php echo $datos->descripcion?></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -123,7 +123,7 @@
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
                     <h5 class="description-header">Descripcion</h5>
-                    <span ><i></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                    <span ><i></i> pRUEBAAAA</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -146,3 +146,13 @@
     </section>
     <!-- /.content -->
 </div>
+<style type="text/css">
+  .text {
+  display: block;
+  width: 200px;
+  height: 44px;
+  overflow: hidden;
+  white-space:normal;
+  text-overflow: ellipsis;
+}
+</style>
