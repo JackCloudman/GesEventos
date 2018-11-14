@@ -10,7 +10,7 @@ class Mcalendar extends CI_Model
 {
     public function getEventos(){
         $this->db->select('id_evento id,nombre_evento title,fecha start');
-        $this->db->from('eventos');
+        $this->db->from('Eventos');
         return $this->db->get()->result();
     }
 }
