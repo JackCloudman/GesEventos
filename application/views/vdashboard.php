@@ -80,16 +80,16 @@
               <div class="row">
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header"><?php echo $datos->fecha?></h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i><?php echo $datos->hora_inicio?></span>
+                    <h5 class="description-header"><h3><?php echo $datos->fecha?></h3></h5>
+                    <span class="description-text"><h4><i class="fa fa-clock-o"> </i></i> <?php echo $datos->hora_inicio?></h4></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">124</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
+                    <h5 class="description-header">Descripción</h5>
+                    <span class="description-text"></i>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -114,16 +114,16 @@
               <div class="row">
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">115</h5>
-                    <span class="description-text"><i class="fa fa-paper-plane"></i> Invitaciones</span>
+                    <h5 class="description-header"><h3>11-09-1900</h3></h5>
+                    <span class="description-text"><h4><i class="fa fa-clock-o"></i> 9:50</h4> </span>
                   </div>
                   <!-- /.description-block -->
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
-                    <h5 class="description-header">84</h5>
-                    <span class="description-text"><i class="fa fa-check"></i> Confirmaciones</span>
+                    <h5 class="description-header">Descripcion</h5>
+                    <span ><i></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
