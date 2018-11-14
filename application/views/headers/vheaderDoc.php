@@ -20,17 +20,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/AdminLTE.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/skin-blue.min.css">
-   <!-- bootstrap datepicker -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-
-  <!-- Bootstrap time Picker -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/skin-red.min.css">
 <script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -67,7 +60,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -115,7 +108,7 @@ desired effect
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?=base_url()?>login/salir" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -137,11 +130,17 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">Accesos directos</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="https://github.com/JackCloudman"><i class="fa fa-github"></i> <span>JackCloudman</span></a></li>
-        <li><a href="NuevoEvento"><i class="fa fa-calendar-plus-o"></i> <span>Nuevo Evento</span></a></li>
-          <li><a href="Calendar"><i class="fa fa-calendar-o"></i><span>Calendario de Eventos</span></a> </li>
+        <li><a href="<?=base_url()?>Documentacion"><span>Inicio documentacion</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocPlantProb"><span>Planteamiento del problema</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocObjetivos"><span>Objetivos del Proyecto</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocStakeHolder"><span>Definición de StakeHolders</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocReglasNeg"><span>Reglas de negocio</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocespecifReq"><span>Especificación de requisitos</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocCasosUso"><span>Modelo de casos de uso</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocMarcoDes"><span>Marco de desarrollo.</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocDiagrama"><span>Diagramas</span></a></li>
+        <li><a href="<?=base_url()?>Dashboard"><span>Salir a Dashboard</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
