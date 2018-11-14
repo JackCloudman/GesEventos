@@ -141,6 +141,7 @@ desired effect
         <!-- Optionally, you can add icons to the links -->
         <li><a href="https://github.com/JackCloudman"><i class="fa fa-github"></i> <span>JackCloudman</span></a></li>
         <li><a href="NuevoEvento"><i class="fa fa-calendar-plus-o"></i> <span>Nuevo Evento</span></a></li>
+          <li><a href="Calendar"><i class="fa fa-calendar-o"></i><span>Calendario de Eventos</span></a> </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

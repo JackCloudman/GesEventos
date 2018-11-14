@@ -1,4 +1,4 @@
-	<div class="content-wrapper">
+  <div class="content-wrapper">
 
 
             <div class="box-header with-border">
@@ -6,28 +6,28 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <form role="form">
+              <form id="event-form" action="registrar" method="post" role="form">
                 <!-- text input -->
                 <div class="form-group">
                   <label>Nombre</label>
-                  <input class="form-control" placeholder="Enter ..." type="text">
+                  <input class="form-control" name="nombre_evento" placeholder="Enter ..." type="text">
                 </div>
                 <div class="form-group">
                   <label>Ponente</label>
-                  <input class="form-control" placeholder="Enter ..."  type="text">
+                  <input class="form-control" name="ponente" placeholder="Enter ..."  type="text">
                 </div>
 
                 <!-- textarea -->
                 <div class="form-group">
                   <label>Descripcion</label>
-                  <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                  <textarea class="form-control" rows="3" name="descripcion" placeholder="Enter ..."></textarea>
                 </div>
                 <label>Fecha:</label>
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input class="form-control pull-right datepicker" type="text">
+                  <input  data-date-format="yyyy-mm-dd" name="fecha" class="form-control pull-right datepicker" type="text">
                 </div>
 
 
@@ -35,37 +35,55 @@
                 <!-- select -->
                 <div class="form-group">
                   <label>Cede</label>
-                  <select class="form-control">
-                    <option>ESCOM</option>
+                  <select  class="form-control" name="escuela">
+                    <option  name="ESCOM">ESCOM</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Especifique</label>
-                  <input class="form-control" placeholder="Salon, Auditorio, lab ..."  type="text">
+                  <input class="form-control" name="Auditorio" placeholder="Salon, Auditorio, lab ..."  type="text">
                 </div>
                 <label class="o">Hora de Inicio:</label>
                   <div class="input-group">
-                    <input id="timepicker" class="form-control timepicker" type="text">
+                    <input id="timepicker"  name= "hora_inicio" class="form-control timepicker" type="text">
 
                     <div class="input-group-addon">
                       <i class="fa fa-clock-o"></i>
                     </div>
+                  </div>
+                  <br>
+                  <div class="box-footer">
+                    <button class="btn btn-primary" type="submit">Publicar</button>
                   </div>
       
               </form>
             </div>
             
           
-	</div>
+  </div>
 
 </body>
 </html>
 <style type="text/css">
-	label{
-		display: block;
+  label{
+    display: block;
     text-align: center;
     line-height: 150%;
     font-size: .85em;
-		
-	}
+    
+  }
 </style>
+<script type="text/javascript">
+
+    $("#event-form").submit(function(e){
+    e.preventDefault();
+    $.ajax({
+    url: "NuevoEvento/addEvento",
+    type: "post",
+    data: $(this).serialize(),
+    success:function(data){
+        location.href = "http://localhost/GesEventos/dashboard";
+      }    
+    });
+  })
+</script>
