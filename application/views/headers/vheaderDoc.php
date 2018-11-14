@@ -131,16 +131,16 @@ desired effect
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="Documentacion"><span>Inicio documentacion</span></a></li>
-        <li><a href="DocPlantProb"><span>Planteamiento del problema</span></a></li>
-        <li><a href="DocObjetivos"><span>Objetivos del Proyecto</span></a></li>
-        <li><a href="DocStakeHolder"><span>Definición de StakeHolders</span></a></li>
-        <li><a href="DocReglasNeg"><span>Reglas de negocio</span></a></li>
-        <li><a href="DocespecifReq"><span>Especificación de requisitos</span></a></li>
-        <li><a href="DocCasosUso"><span>Modelo de casos de uso</span></a></li>
-        <li><a href="DocMarcoDes"><span>Marco de desarrollo.</span></a></li>
-        <li><a href="DocDiagrama"><span>Diagramas</span></a></li>
-        <li><a href="Dashboard"><span>Salir a Dashboard</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion"><span>Inicio documentacion</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocPlantProb"><span>Planteamiento del problema</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocObjetivos"><span>Objetivos del Proyecto</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocStakeHolder"><span>Definición de StakeHolders</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocReglasNeg"><span>Reglas de negocio</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocespecifReq"><span>Especificación de requisitos</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocCasosUso"><span>Modelo de casos de uso</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocMarcoDes"><span>Marco de desarrollo.</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocDiagrama"><span>Diagramas</span></a></li>
+        <li><a href="<?=base_url()?>Dashboard"><span>Salir a Dashboard</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

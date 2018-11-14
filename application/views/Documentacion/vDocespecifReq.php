@@ -9,9 +9,10 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-      <div class="row">
-        <p align="justify">
-        	<h2 align="center">Especificación de requisitos</h2>
+      <div class="box">
+        <div class="box-body">
+          <p align="justify">
+          <h2 align="center">Especificación de requisitos</h2>
           <h4>Funcionales</h4>
           <ol>
             <li value="1">El usuario debe registrarse usando su correo, apellido paterno, materno, nombre completo, fecha de nacimiento, sexo, escuela de procedencia (si aplica).</li>
@@ -50,7 +51,10 @@
         </p>
         <br/><br/>
         <a href="Documentacion" class="big-box-footer" >Regresar al inicio</a> 
+        </div>
+        <!-- /.box-body -->
       </div>
+    <!-- /.box -->
     </section>
     <!-- /.content -->
 </div>

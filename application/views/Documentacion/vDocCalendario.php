@@ -9,11 +9,15 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
-      <div class="row" style="overflow:auto;">
-        <p align="justify">
-        	<img src="assets/dist/img/calendario.jpg" alt="calendario">
-        </p> 
+      <div class="box" style="overflow:auto;">
+        <div class="box-body">
+          <p align="justify">
+            <img src="<?=base_url()?>assets/dist/img/calendario.jpg" alt="calendario">
+          </p> 
+        </div>
+        <!-- /.box-body -->
       </div>
+      <!-- /.box -->
       <div class="row">
         <br/><br/><br/>
         <a href="DocMarcoDes" class="big-box-footer" >Marco de desarrollo</a><br/>
