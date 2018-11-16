@@ -12,19 +12,22 @@ class VerEvento extends CI_Controller
         parent::__construct();
         $this->load->model('MverEvento');
     }
-    public function index($idEvento){
+    public function index(){
 
         $this->load->view('headers/vheader',array("title"=>"hola mundo"));
         $this->load->view('Vverevento');
         $this->load->view('footers/vfooter');
 
-        //$s_evento = array(  );
-
     }
     public function getEvento($idEvento){
+        $evento= $this->MverEvento->getEvento($idEvento);
 
-        $r= $this->MverEvento->getEvento($idEvento);
 
-        echo json_encode($r);
+        $data = array("title"=>"EVENTOS");
+        $data["eventos"] = json_encode($evento);
+        $this->load->view('headers/vheader',array("title"=>"hola mundo"));
+        $this->load->view('Vverevento',$data);
+        $this->load->view('footers/vfooter');
+
     }
 }

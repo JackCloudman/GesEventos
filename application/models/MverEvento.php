@@ -15,7 +15,8 @@ class MverEvento extends CI_Model
         $this->db->from('Eventos');
         $query='id_evento = '.$idEvento;
         $this->db->where($query);
-        return $this->db->get()->result();
+        $data=$this->db->get()->result();
+        return $data;
         //$this->db->get()->result();
         //return $this->db->last_query();
 
