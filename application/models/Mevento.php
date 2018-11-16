@@ -23,6 +23,15 @@ class Mevento extends CI_Model
 		return $this->db->get()->result(); 
 
 	}
+
+    public function getEvento($idEvento){
+        $this->db->select('*');
+        $this->db->from('Eventos');
+        $query='id_evento = '.$idEvento;
+        $this->db->where($query);
+        $data=$this->db->get()->result();
+        return $data;
+    }
 	
 
 }

@@ -10,7 +10,7 @@ class VerEvento extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('MverEvento');
+        $this->load->model('Mevento');
     }
     public function index(){
 
@@ -20,7 +20,7 @@ class VerEvento extends CI_Controller
 
     }
     public function getEvento($idEvento){
-        $evento= $this->MverEvento->getEvento($idEvento);
+        $evento= $this->Mevento->getEvento($idEvento);
 
 
         $data = array("title"=>"EVENTOS");
