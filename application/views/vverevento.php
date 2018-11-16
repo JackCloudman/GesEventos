@@ -1,12 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: jonat
- * Date: 11/14/2018
- * Time: 2:37 PM
- */
-?>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" xmlns="http://www.w3.org/1999/html">
     <!-- Content Header (Page header) -->
