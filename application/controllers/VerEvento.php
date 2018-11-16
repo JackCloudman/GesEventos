@@ -12,14 +12,7 @@ class VerEvento extends CI_Controller
         parent::__construct();
         $this->load->model('mevento');
     }
-    public function index(){
-
-        $this->load->view('headers/vheader',array("title"=>"hola mundo"));
-        $this->load->view('vverevento');
-        $this->load->view('footers/vfooter');
-
-    }
-    public function getEvento($idEvento=null){
+    public function index($idEvento=null){
         if(!$idEvento)
             return;//Debe mandar la id!
         $evento= $this->mevento->getEvento($idEvento);
@@ -34,4 +27,5 @@ class VerEvento extends CI_Controller
         $this->load->view('footers/vfooter');
 
     }
+
 }
