@@ -15,6 +15,7 @@ class Superadmin extends CI_Controller {
 		$this->load->model('msuperadmin');
 		$this->load->model('musuario');
 		$this->load->model('mescuela');
+		$this->load->model('mevento');
 		$this->load->library('form_validation');
   	}
 	public function index(){
@@ -29,6 +30,19 @@ class Superadmin extends CI_Controller {
 		$this->load->view("headers/vheadersadmin",$data);
 		$this->load->view('vdashboardsa');
         $this->load->view('footers/vfooter');
+	}
+	public function eventos_index(){
+		$usuario = $this->usuario;
+		$name = $this->musuario->getName($usuario->id_usuario);
+		$eventos = $this->mevento->getAllEventos();
+
+		$data = array("title"=>"Super Admin Dashboard");
+		$data["name"] = $name["nombre"]." ".$name["appat"];
+		$data["eventos"] = $eventos;
+		
+		$this->load->view("headers/vheadersadmin",$data);
+		$this->load->view('vdashboardevento');
+		return;
 	}
 	public function escuelas_index(){
 		$usuario = $this->usuario;
@@ -145,5 +159,11 @@ class Superadmin extends CI_Controller {
 		}
    		header('Content-Type: application/json');
 		echo json_encode($respuesta);
+	}
+	public function ajax_delete_evento(){
+	  $data = $this->input->post();
+   	  header('Content-Type: application/json');
+ 	  echo json_encode($data);
+	
 	}
 }

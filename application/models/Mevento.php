@@ -23,8 +23,11 @@ class Mevento extends CI_Model
 		return $this->db->get()->result(); 
 
 	}
-	
-
+	public function getAllEventos(){
+	  $q = "SELECT * from Eventos ev
+		join Escuelas es on ev.escuela = es.id_escuela;";
+	  return $this->db->query($q)->result(); 
+	}
 }
 
  ?>
