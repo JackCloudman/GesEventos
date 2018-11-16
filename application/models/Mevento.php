@@ -18,7 +18,7 @@ class Mevento extends CI_Model
 	}
 	public function infoPorEvento()
 	{
-		$this->db->select('nombre_evento, fecha, escuela, hora_inicio');
+		$this->db->select('nombre_evento, fecha, escuela, hora_inicio, descripcion, id_evento');
 		$this->db->from('Eventos');
 		return $this->db->get()->result(); 
 
