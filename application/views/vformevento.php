@@ -82,7 +82,7 @@
     type: "post",
     data: $(this).serialize(),
     success:function(data){
-        location.href = "http://localhost/GesEventos/dashboard";
+	    location.href = "<?=base_url()?>dashboard";
       }    
     });
   })
