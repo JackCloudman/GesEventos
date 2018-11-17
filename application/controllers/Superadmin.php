@@ -145,8 +145,6 @@ class Superadmin extends CI_Controller {
 
 						$respuesta["codigo"] = 0;
 						$respuesta["respuesta"] = "Sin errores";
-						$respuesta["datos"] = $this->input->post();
-						$respuesta["validate"] = $validate;
 						$respuesta["errores"] = Array();
 					}
 					else{
@@ -161,9 +159,32 @@ class Superadmin extends CI_Controller {
 		echo json_encode($respuesta);
 	}
 	public function ajax_delete_evento(){
-	  $data = $this->input->post();
+		$respuesta = Array();
+		if(!$this->input->post()){
+			$respuesta["codigo"] = 1;
+			$respuesta["respuesta"] = "Sin parametros";
+		}else{
+			$this->form_validation->set_rules('evento', 'Evento', 'required');
+			$this->form_validation->set_data($this->input->post());
+			if(!$this->form_validation->run()){
+				$respuesta["codigo"] = 2;
+				$respuesta["respuesta"] = "Falta el id de la escuela";
+				$respuesta["errores"] = validation_errors();
+			}else{
+				$evento = $this->input->post()["evento"];
+				if($this->mevento->deleteEvento($evento)){
+					$respuesta["codigo"] = 0;
+					$respuesta["respuesta"] = "Evento borrado con exito";
+					$respuesta["errores"] = Array();
+				}else{
+					$respuesta["codigo"] = 1;
+					$respuesta["respuesta"] = "No se pudo borrar el evento";
+					$respuesta["errores"] = Array("No se pudo borrar el evento");
+				}
+			}
+		}
    	  header('Content-Type: application/json');
- 	  echo json_encode($data);
+ 	  echo json_encode($respuesta);
 	
 	}
 }

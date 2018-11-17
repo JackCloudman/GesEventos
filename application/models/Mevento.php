@@ -28,6 +28,9 @@ class Mevento extends CI_Model
 		join Escuelas es on ev.escuela = es.id_escuela;";
 	  return $this->db->query($q)->result(); 
 	}
+	public function deleteEvento($id_evento){
+		return $this->db->delete('Eventos', array('id_evento' => $id_evento)); 
+	}
 }
 
  ?>

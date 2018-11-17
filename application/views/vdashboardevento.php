@@ -30,7 +30,7 @@
                 <?php
                   foreach ($eventos as $e) {
                 ?>
-                <tr>
+                <tr id="<?=$e->id_evento;?>">
                   <td><?=$e->nombre?></td>
                   <td><?=$e->fecha?></td>
                   <td><?=$e->nombre?></td>
@@ -77,10 +77,15 @@
         cache : false,
         data: {evento:evento},
 	success:function(data){
-	  alert(data);
-          }
-      });
+      if(data.codigo==0){
+         $("#"+evento).remove();
+      }
+      else{
+        alert(data.respuesta);
+      }
+    }
+  });
 
-    });
+});
   })
 </script>
