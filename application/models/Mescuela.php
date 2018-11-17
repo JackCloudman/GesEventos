@@ -8,5 +8,14 @@ class Mescuela extends CI_Model{
         return Array();
       return $result;
     }
+    public function getEscuelaByAdmin($id_admin){
+      $q="SELECT * from Escuelas es
+      join Administradores a on es.id_escuela=a.escuela 
+      where a.usuario = '".$id_admin."';";
+      $result = $this->db->query($q)->result();
+      if(!$result)
+        return false;
+      return $result[0];
+    }
   
 }
