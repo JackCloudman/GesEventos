@@ -11,10 +11,12 @@ class NuevoEvento extends CI_Controller {
 		}
 		$this->load->model('mevento');
   	}
+  	
 	public function index()
 	{
+		$escuelas['escuelas']=$this->mevento->allEscuelas();
 		$this->load->view('headers/vheader',array("title"=>"hola mundo"));
-		$this->load->view('vformevento');
+		$this->load->view('vformevento', $escuelas);
 		$this->load->view('footers/vfooter');
 	}
 	public function addEvento()

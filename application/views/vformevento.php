@@ -36,7 +36,9 @@
                 <div class="form-group">
                   <label>Cede</label>
                   <select  class="form-control" name="escuela">
-                    <option  name="ESCOM">ESCOM</option>
+                    <?php foreach($escuelas as $escuelas){?>
+                    <option  value="<?php echo $escuelas->id_escuela?>"><?php echo $escuelas->nombre?></option>
+                    <?php }?>
                   </select>
                 </div>
                 <div class="form-group">
