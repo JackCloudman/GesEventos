@@ -146,4 +146,7 @@ class Superadmin extends CI_Controller {
    		header('Content-Type: application/json');
 		echo json_encode($respuesta);
 	}
+	public function borrarEscuela(){
+		echo $this->mescuela->borrarEscuela(1);
+	}
 }

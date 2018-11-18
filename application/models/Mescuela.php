@@ -8,5 +8,8 @@ class Mescuela extends CI_Model{
         return Array();
       return $result;
     }
+    public function borrarEscuela($id_escuela){
+      echo "borrar escuela con id".$id_escuela;
+    }
   
 }
