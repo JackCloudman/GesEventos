@@ -67,7 +67,8 @@
             <!-- /.box-header -->
             <div class="box-body">
              <div class="row">
-          <?php foreach($datos as $datos){?>
+          <?php  $this->load->helper('text');
+          foreach($datos as $datos){?>
           <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
@@ -89,7 +90,9 @@
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
                     <h5 class="description-header">Descripción</h5>
-                    <span class="description-text"></i>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                    <span></i><?php $larga = $datos->descripcion;
+                      $corta = word_limiter($larga, 20);
+                      echo $corta;?></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -123,7 +126,7 @@
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
                     <h5 class="description-header">Descripcion</h5>
-                    <span ><i></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry...</span>
+                    <span ><i></i> pRUEBAsdA391293AA</span>
                   </div>
                   <!-- /.description-block -->
                 </div>
@@ -146,3 +149,13 @@
     </section>
     <!-- /.content -->
 </div>
+<style type="text/css">
+  .text {
+  display: block;
+  width: 200px;
+  height: 44px;
+  overflow: hidden;
+  white-space:normal;
+  text-overflow: ellipsis;
+}
+</style>

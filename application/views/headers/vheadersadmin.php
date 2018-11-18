@@ -74,7 +74,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="<?=base_url()?>" class="logo">
+    <a href="<?=base_url()?>Dashboard" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>ES</span>
       <!-- logo for regular state and mobile devices -->
@@ -145,11 +145,19 @@ desired effect
         </li>
         <li class="treeview">
           <a href="/">
+            <i class="fa fa-calendar"></i>
+            <span>Eventos</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url()?>Superadmin/eventos"><i class="fa fa-list"></i> Lista de eventos</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="/">
             <i class="fa fa-users"></i>
             <span>Usuarios</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-plus"></i> Nuevo usuario</a></li>
             <li><a href="<?=base_url()?>Superadmin/usuarios"><i class="fa fa-list"></i> Lista de usuarios</a></li>
           </ul>
         </li>
