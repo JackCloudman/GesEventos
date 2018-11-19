@@ -41,7 +41,7 @@
               <td>Todos los agentes externos que oficialmente no formen parte de la comunidad escolar.</td>  
             </tr>
           </table><br/><br/><br/>
-          <a href="Documentacion" class="big-box-footer" >Regresar al inicio</a> 
+          <a href="<?=base_url()?>Documentacion" class="big-box-footer" >Regresar al inicio</a> 
         </div>
         <!-- /.box-body -->
       </div>

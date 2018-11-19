@@ -69,4 +69,11 @@ class Documentacion extends CI_Controller
 		$this->load->view('footers/vfooter');
 	}
 
+	public function DocCalendario()
+	{
+		$this->load->view('headers/vheaderDoc',array("title"=>"gesEvento"));
+		$this->load->view('Documentacion/vDocCalendario');
+		$this->load->view('footers/vfooter');
+	}
+
 }
