@@ -13,30 +13,32 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Lista de eventos</h3>
+            <h3 class="box-title">Lista de escuelas</h3>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
             <table id="escuelas" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>Nombre del evento</th>
-                <th>Fecha del evento</th>
-                <th>Escuela</th>
+                <th>Nombre de la escuela</th>
+                <th>Numero de eventos</th>
+                <th>Direccion</th>
                 <th>Accion</th>
               </tr>
               </thead>
               <tbody>
               <?php
-                foreach ($eventos as $e) {
+                foreach ($escuelas as $e) {
               ?>
-              <tr id="<?=$e->id_evento;?>">
-                <td><?=$e->nombre_evento?></td>
-                <td><?=$e->fecha?></td>
+              <tr>
                 <td><?=$e->nombre?></td>
+                <td><?=$e->direccion1?></td>
+                <td><?=$e->direccion1?></td>
                 <th>
                   <h4>
-      <i class= "fa fa-trash del" data-evento="<?=$e->id_evento;?>"></i>
+                  <i class="fa fa-eye"></i>
+                  <i class= "fa fa-pencil"></i>
+                  <i class= "fa fa-trash"></i>
                 </h4>
                 </th>
               </tr>
@@ -66,24 +68,6 @@
 <script>
 $(function () {
   $('#escuelas').DataTable();
-  $(".del").on('click',function(e){
-    var evento = $(this).attr("data-evento");
-    $.ajax({
-      url: "<?=base_url()?>Superadmin/ajax_delete_evento",
-      type: "post",
-      dataType:'json',
-      cache : false,
-      data: {evento:evento},
-success:function(data){
-    if(data.codigo==0){
-       $("#"+evento).remove();
-    }
-    else{
-      alert(data.respuesta);
-    }
-  }
-});
 
-});
 })
 </script>

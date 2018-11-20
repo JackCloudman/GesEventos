@@ -31,13 +31,11 @@
                 foreach ($eventos as $e) {
               ?>
               <tr id="<?=$e->id_evento;?>">
-                <td><?=$e->nombre?></td>
+                <td><?=$e->nombre_evento?></td>
                 <td><?=$e->fecha?></td>
                 <td><?=$e->nombre?></td>
                 <th>
                   <h4>
-                  <i class="fa fa-eye"></i>
-                  <i class= "fa fa-pencil"></i>
       <i class= "fa fa-trash del" data-evento="<?=$e->id_evento;?>"></i>
                 </h4>
                 </th>
