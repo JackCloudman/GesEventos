@@ -75,7 +75,7 @@
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-black" style="background: url('assets/dist/img/photo1.png') center center;">
               <h3 class="widget-user-username"><?php echo $datos->nombre_evento?></h3>
-              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> <?php echo $datos->escuela?></h5>
+              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> <?php echo $datos->nombre?></h5>
             </div>
             <div class="box-footer">
               <div class="row">
