@@ -27,6 +27,7 @@ class Admin extends CI_Controller {
 		$name = $this->musuario->getName($usuario->id_usuario);
 		$data = array("title"=>"Admin Dashboard");
 		$data["name"] = $name["nombre"]." ".$name["appat"];
+    $data["eventos"] = $eventos;
 
 		$this->load->view("headers/vheaderadmin",$data);
 		$this->load->view('Admin/vdashboard');

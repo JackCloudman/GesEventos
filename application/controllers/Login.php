@@ -5,19 +5,19 @@ class Login extends CI_Controller {
   	function __construct()
   	{
   		parent::__construct();
-  		$this->load->model('mlogin');		
+  		$this->load->model('mlogin');
   	}
 	public function index()
 	{
 		$user = $this->session->userdata("user");
 		if(!$user){
-			$this->load->view('vlogin');	
+			$this->load->view('vlogin');
 		}
 		else{
 			redirect('dashboard');
 		}
 		return;
-		
+
 	}
 	public function iniciar(){
 		if(!$this->input->post()){
@@ -58,6 +58,6 @@ class Login extends CI_Controller {
 	}*/
 	public function salir(){
 		$this->session->unset_userdata('user');
-		redirect('dashboard');
+		redirect(base_url());
 	}
 }
