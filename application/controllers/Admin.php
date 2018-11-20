@@ -29,7 +29,7 @@ class Admin extends CI_Controller {
 		$data["name"] = $name["nombre"]." ".$name["appat"];
 
 		$this->load->view("headers/vheaderadmin",$data);
-		$this->load->view('vdashboardadmin');
+		$this->load->view('Admin/vdashboard');
         $this->load->view('footers/vfooter');
 	}
 	public function eventos_index(){
