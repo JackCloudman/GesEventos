@@ -20,10 +20,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/Ionicons/css/ionicons.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/AdminLTE.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
-  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/skin-red.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/skin-blue.min.css">
+   <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="<?=base_url()?>assets/plugins/timepicker/bootstrap-timepicker.min.css">
 <script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -40,34 +47,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
-<body class="hold-transition skin-red sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <!-- Main Header -->
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="<?=base_url()?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>ES</span>
       <!-- logo for regular state and mobile devices -->
@@ -90,7 +77,7 @@ desired effect
               <!-- The user image in the navbar-->
               <img src="<?=base_url()?>assets/dist/img/escom.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">ESCOM - IPN</span>
+              <span class="hidden-xs"> <?=$name?></span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
@@ -98,24 +85,19 @@ desired effect
                 <img src="<?=base_url()?>assets/dist/img/escom.png" class="img-circle" alt="User Image">
 
                 <p>
-                  ESCOM - IPN
-                  <small>Miembro desde 2018</small>
+                   <?=$name?>
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="#" class="btn btn-default btn-flat">Perfil</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?=base_url()?>login/salir" class="btn btn-default btn-flat">Cerrar sesion</a>
                 </div>
               </li>
             </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -130,17 +112,17 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-        <!-- Optionally, you can add icons to the links -->
-        <li><a href="<?=base_url()?>Documentacion"><span>Inicio documentacion</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocPlantProb"><span>Planteamiento del problema</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocObjetivos"><span>Objetivos del Proyecto</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocStakeHolder"><span>Definición de StakeHolders</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocReglasNeg"><span>Reglas de negocio</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocespecifReq"><span>Especificación de requisitos</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocCasosUso"><span>Modelo de casos de uso</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocMarcoDes"><span>Marco de desarrollo.</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocDiagrama"><span>Diagramas</span></a></li>
-        <li><a href="<?=base_url()?>Dashboard"><span>Salir a Dashboard</span></a></li>
+        <li class="header">Accesos directos</li>
+        <li class="treeview">
+          <a href="/">
+            <i class="fa fa-graduation-cap"></i>
+            <span>Mis eventos</span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="<?=base_url()?>Admin/eventos/crear"><i class="fa fa-plus"></i> Nuevo evento</a></li>
+            <li><a href="<?=base_url()?>Admin/eventos"><i class="fa fa-list"></i> Lista de eventos</a></li>
+          </ul>
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

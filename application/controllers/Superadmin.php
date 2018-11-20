@@ -7,10 +7,10 @@ class Superadmin extends CI_Controller {
   		parent::__construct();
  		$this->usuario = $this->session->userdata("user");
 		if(!$this->usuario){
-			redirect('dashboard');	
+			redirect('dashboard');
 		}
 		if($this->usuario->nivel<3){
-			redirect('dashboard');	
+			redirect('dashboard');
 		}
 		$this->load->model('msuperadmin');
 		$this->load->model('musuario');
@@ -39,9 +39,9 @@ class Superadmin extends CI_Controller {
 		$data = array("title"=>"Super Admin Dashboard");
 		$data["name"] = $name["nombre"]." ".$name["appat"];
 		$data["eventos"] = $eventos;
-		
+
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardevento');
+		$this->load->view('SuperAdmin/vlistaeventos');
 		return;
 	}
 	public function escuelas_index(){
@@ -87,7 +87,7 @@ class Superadmin extends CI_Controller {
 		$respuesta = Array();
 
 
-		
+
 		if(!$this->input->post()){
 			$respuesta["codigo"] = 1;
 			$respuesta["respuesta"] = "Sin parametros";
@@ -132,7 +132,7 @@ class Superadmin extends CI_Controller {
 					$escuela = Array(
 						"nombre"		=> $r["escuela"],
 						"direccion1"	=> $r["dir1"],
-						"direccion2"	=> $r["dir2"],				
+						"direccion2"	=> $r["dir2"],
 					);
 					$admin = Array(
 						"username"		=> $r["username"],
@@ -185,6 +185,6 @@ class Superadmin extends CI_Controller {
 		}
    	  header('Content-Type: application/json');
  	  echo json_encode($respuesta);
-	
+
 	}
 }

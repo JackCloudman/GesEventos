@@ -18,10 +18,15 @@
         <!-- /.box-body -->
       </div>
       <!-- /.box -->
-      <div class="row">
-        <br/><br/><br/>
-        <a href="DocMarcoDes" class="big-box-footer" >Marco de desarrollo</a><br/>
-        <a href="Documentacion" class="big-box-footer" >Regresar al inicio</a>
+
+      <div class="box">
+        <div class="box-body">
+          <p align="justify">
+            <a href="<?=base_url()?>Documentacion/DocMarcoDes" class="big-box-footer" >Marco de desarrollo</a><br/>
+            <a href="<?=base_url()?>Documentacion" class="big-box-footer" >Regresar al inicio</a>
+          </p> 
+        </div>
+        <!-- /.box-body -->
       </div>
     </section>
     <!-- /.content -->

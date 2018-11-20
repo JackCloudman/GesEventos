@@ -1,7 +1,7 @@
-<?php 
+<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * 
+ *
  */
 class Mevento extends CI_Model
 {
@@ -22,11 +22,6 @@ class Mevento extends CI_Model
 				$this->db->from('Eventos AS t1, Escuelas As t2');
 				$this->db->where('t2.id_escuela = t1.escuela');
 				return $this->db->get()->result(); 
-		/*$this->db->select('nombre_evento, fecha, escuela, hora_inicio, descripcion, id_evento');
-		$this->db->from('Eventos');
-		$this->db->join('Escuelas','Escuelas.id_escuela = Eventos.escuela');
-		
-		*/
 	}
 	public function allEscuelas()
 	{
@@ -41,15 +36,29 @@ class Mevento extends CI_Model
 		$this->db->from('Escuelas');
 		$this->db->where('id_escuela',$id_escuela);
 		return $this->db->get()->result(); 
-
 	}
 	public function getAllEventos(){
 	  $q = "SELECT * from Eventos ev
 		join Escuelas es on ev.escuela = es.id_escuela;";
-	  return $this->db->query($q)->result(); 
+	  return $this->db->query($q)->result();
 	}
 	public function deleteEvento($id_evento){
-		return $this->db->delete('Eventos', array('id_evento' => $id_evento)); 
+		return $this->db->delete('Eventos', array('id_evento' => $id_evento));
+	}
+	public function getEventosByEscuela($id_escuela){
+		$q = "SELECT * from Eventos e
+		join Escuelas es on es.id_escuela=e.escuela
+		where escuela = '".$id_escuela."';";
+	    $result = $this->db->query($q);
+	    if(!$result)
+	      return Array();
+	    return $result->result();
+	}
+	public function getEvento($id_evento){
+		$this->db->select("*");
+		$this->db->from('Eventos');
+		$this->db->where('id_evento',$id_evento);
+		return $this->db->get()->row();
 	}
 }
 
