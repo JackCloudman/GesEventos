@@ -24,7 +24,7 @@
     También nos aseguraremos de que los eventos que se muestran en la plataforma tengan una descripción para que el usuario tenga una idea de lo que se va realizar en el evento, en donde se realizará y quién está a cargo del evento, de manera opcional estos tendran un video promocional o un flyer o cartel para que sean más llamativos pero esto dependerá del creador del evento. A su vez los usuarios podrán dejar su comentario para retroalimentar el evento y el creador sepa que mejorar para la próxima o simplemente sepa que le gusto o no a la gente. Se posibilitará la opción de posponer evento al creador de este y la de cancelar asistencia al usuario ya que a veces salen imprevistos y es necesario hacer este tipo de acciones.<br/>
     Con esto planeamos dar una solución a la problemática o por lo menos ofrecer una alternativa a las escuelas para gestionar sus eventos.<br/>
           </p>  
-          <a href="Documentacion" class="big-box-footer" >Regresar al inicio</a>        
+          <a href="<?=base_url()?>Documentacion" class="big-box-footer" >Regresar al inicio</a>       
         </div>
         <!-- /.box-body -->
       </div>
