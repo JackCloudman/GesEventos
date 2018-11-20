@@ -9,7 +9,7 @@ class Superadmin extends CI_Controller {
 		if(!$this->usuario){
 			redirect('dashboard');
 		}
-		if($this->usuario->nivel<3){
+		if($this->usuario->nivel!=3){
 			redirect('dashboard');
 		}
 		$this->load->model('msuperadmin');
@@ -28,7 +28,7 @@ class Superadmin extends CI_Controller {
 		$data["contador"] = $contadorAll;
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardsa');
+		$this->load->view('SuperAdmin/vdashboard');
         $this->load->view('footers/vfooter');
 	}
 	public function eventos_index(){
@@ -54,7 +54,7 @@ class Superadmin extends CI_Controller {
 		$data["escuelas"] = $escuelas;
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardescuela');
+		$this->load->view('SuperAdmin/vlistaescuelas');
         $this->load->view('footers/vfooter');
 	}
 	public function escuelas_crear(){
@@ -67,7 +67,7 @@ class Superadmin extends CI_Controller {
 		$data["name"] = $name["nombre"]." ".$name["appat"];
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vformescuela');
+		$this->load->view('SuperAdmin/vformescuela');
         $this->load->view('footers/vfooter');
 	}
 	public function usuarios(){
@@ -80,7 +80,7 @@ class Superadmin extends CI_Controller {
 		$data["usuarios"] = $usuarios;
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardusuario');
+		$this->load->view('SuperAdmin/vlistausuarios');
         $this->load->view('footers/vfooter');
 	}
 	public function ajax_crear_escuela(){

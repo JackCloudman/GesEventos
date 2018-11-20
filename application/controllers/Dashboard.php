@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 
         $datos['datos'] = $this->mevento->infoPorEvento();
         $this->load->view('headers/vheader',array("title"=>"Dashboard general"));
-        $this->load->view('vdashboard',$datos);
+        $this->load->view('Guest/vdashboard',$datos);
         $this->load->view('footers/vfooter');
     }
     public function lista_eventos()
