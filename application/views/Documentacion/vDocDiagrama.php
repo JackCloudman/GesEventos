@@ -7,40 +7,7 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
-<head>
-  <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-    <script>
-      $(document).ready(function(){
-          $('#DiagramaObjCU1').click(function(){
-            $("#contenido").load("/GesEventos/application/views/Documentacion/diaCU1.html");
-                         });
 
-          $('#DiagramaObjCU2').click(function(){
-            $("#contenido").load("/GesEventos/application/views/Documentacion/diaCU2.html");
-                         });
-
-          $('#DiagramaObjCU3').click(function(){
-            $("#contenido").load("/GesEventos/application/views/Documentacion/diaCU3.html");
-                         });
-
-          $('#DiagramaClases').click(function(){
-            $("#contenido").load("/GesEventos/application/views/Documentacion/diaClases.html");
-                         });
-
-          $('#DiagramaCasoUso').click(function(){
-            $("#contenido").load("/GesEventos/application/views/Documentacion/diaCasoUso.html");
-                         });
-
-          /*$('#Jython').click(function(){
-            $("#contenido").load("c_jython.html");
-                         });
-
-          $('#Jython').click(function(){
-            $("#contenido").load("c_jython.html");
-                         });*/
-                    });
-  </script>
-</head>
 <!--
 BODY TAG OPTIONS:
 =================
@@ -71,24 +38,79 @@ desired effect
         Documentacion
       </h1>
     </section>
-    <div class="box">
-        <div class="box-body">
-          <p align="justify">
-            <a href="#" id="DiagramaCasoUso">Diagrama de Casos de Uso</a><br/>
-            <a href="#" id="DiagramaClases">Diagrama de Clases</a><br/>
-            <a href="#" id="DiagramaObjCU1">Diagrama de Objetos CU 1</a><br/>
-            <a href="#" id="DiagramaObjCU2">Diagrama de Objetos CU 2</a><br/>
-            <a href="#" id="DiagramaObjCU3">Diagrama de Objetos CU 3</a><br/>
-              <br>
-              <table>
-                <tr>
-                  <td id ="contenido">
-                  </td>
-                </tr>
-              </table>
+      <div class="col-md-15">
+          <div class="box box-solid" align="center">
+            <div class="box-header with-border">
+              <h3 class="box-title">Diagramas</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="5" class=""></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="item">
+                    <img src="<?=base_url()?>assets/dist/img/Diagrama_CU.png" width="70%" height="70%" alt="Diagrama de CU">
+                    <div class="carousel-outer">
+                      <br/>Diagrama Casos de Usos
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="<?=base_url()?>assets/dist/img/DiagramaClasesF.png" alt="Diagrama de clases">
+
+                    <div class="carousel-outer">
+                      <br/>Diagrama de Clases
+                    </div>
+                  </div>
+                  <div class="item active">
+                    <img src="<?=base_url()?>assets/dist/img/DejarComentario.png" alt="Diagrama de objCU1">
+
+                    <div class="carousel-outer">
+                      <br/>Diagrama de Objetos CU: Dejar Comentario Caso 1
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="<?=base_url()?>assets/dist/img/DejarComentarioCaso2.png" alt="Diagrama de objCU1_2">
+
+                    <div class="carousel-outer">
+                      <br/>Diagrama de Objetos CU: Dejar Comentario Caso 2
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="<?=base_url()?>assets/dist/img/Inscribir_Evento.png" alt="Diagrama de objCU2">
+
+                    <div class="carousel-outer">
+                      <br/>Diagrama de Objetos CU: Inscribir Evento
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="<?=base_url()?>assets/dist/img/ModificarEvento.png" alt="Diagrama de objCU3">
+
+                    <div class="carousel-outer">
+                      <br/>Diagrama de Objetos CU: Modificar Evento
+                    </div>
+                  </div>
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                  <span class="fa fa-angle-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                  <span class="fa fa-angle-right"></span>
+                </a>
+              </div>
+            </div>
+            <!-- /.box-body -->
+            
+          </div>
+          <!-- /.box -->
         </div>
-        <!-- /.box-body -->
-      </div>
-      <!-- /.box -->
+        <a href="<?=base_url()?>Documentacion" class="big-box-footer" >Regresar al inicio</a>
+    
 </div>
  <!-- /.content-wrapper -->
