@@ -18,7 +18,7 @@
             <li type="disc">La gente que asiste al evento pueda dar su opinión sobre el evento y el creador del evento tenga una retroalimentación.</li>
             <li type="disc">Tanto para el creador del evento como para el asistente que va al evento, facilitar el proceso de registro y creación del evento respecto al registro convencional.</li>
           </p>
-        <a href="Documentacion" class="big-box-footer" >Regresar al inicio</a> 
+        <a href="<?=base_url()?>Documentacion" class="big-box-footer" >Regresar al inicio</a>
         </div>
         <!-- /.box-body -->
       </div>

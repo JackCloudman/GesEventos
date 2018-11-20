@@ -11,19 +11,21 @@ class Dashboard extends CI_Controller {
         }
         if($usuario->nivel==3)
             redirect('Superadmin');
+        if($usuario->nivel==2)
+            redirect('Admin');
         $this->load->model('mevento');
     }
     public function index()
     {
+
         $datos['datos'] = $this->mevento->infoPorEvento();
         $this->load->view('headers/vheader',array("title"=>"Dashboard general"));
-        $this->load->view('vdashboard',$datos);
+        $this->load->view('Guest/vdashboard',$datos);
         $this->load->view('footers/vfooter');
     }
     public function lista_eventos()
     {
         $datos = $this->mevento->infoPorEvento();
-        print_r($datos);
         return $datos;
     }
 }
