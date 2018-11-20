@@ -46,6 +46,55 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin/vlistaeventos');
 		return;
 	}
+  public function eventos_crear(){
+    $usuario = $this->usuario;
+    $name = $this->musuario->getName($usuario->id_usuario);
+
+    $data = array("title"=>"Admin Dashboard");
+    $data["name"] = $name["nombre"]." ".$name["appat"];
+
+    $this->load->view('headers/vheaderadmin',$data);
+    $this->load->view('Admin/vformevento');
+    $this->load->view('footers/vfooter');
+  }
+  public function ajax_create_evento(){
+      $respuesta = Array();
+      $usuario = $this->usuario;
+  		if(!$this->input->post()){
+        $respuesta["codigo"] = 1;
+  			$respuesta["respuesta"] = "Sin parametros";
+        $respuesta["errores"] = "Sin parametros!";
+  		}else{
+        $this->form_validation->set_rules('nombre_evento','Nombre Evento','required');
+        $this->form_validation->set_rules('descripcion','Descripcion','required');
+        $this->form_validation->set_rules('fecha','Fecha','required');
+        $this->form_validation->set_rules('hora_inicio','Hora','required|trim|min_length[8]|max_length[8]');
+        $this->form_validation->set_data($this->input->post());
+
+        $validate = $this->form_validation->run();
+        if(!$validate){
+          $respuesta["codigo"] = 2;
+  				$respuesta["respuesta"] = "Te hace falta llenar algunos campos";
+  				$respuesta["errores"] = validation_errors();
+        }else{
+          $data = $this->input->post();
+          $data["escuela"] = $this->mescuela->getEscuelaByAdmin($usuario->id_usuario)->id_escuela;
+          $result =  $this->mevento->addEvento($data);
+          if($result){
+            $respuesta["codigo"] = 0;
+						$respuesta["respuesta"] = "Sin errores";
+						$respuesta["errores"] = Array();
+          }else{
+            $respuesta["codigo"] = 3;
+						$respuesta["respuesta"] = "No se pudo crear el evento!";
+						$respuesta["errores"] = "<p>No se pudo crear el evento :(</p>";
+          }
+        }
+
+      }
+      header('Content-Type: application/json');
+		  echo json_encode($respuesta);
+  }
 	public function ajax_delete_evento(){
 		$respuesta = Array();
     $usuario = $this->usuario;

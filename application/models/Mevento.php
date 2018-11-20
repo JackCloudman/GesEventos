@@ -5,14 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class Mevento extends CI_Model
 {
-	public function addEvento($nombre_evento,$ponente,$descripcion,$fecha,$escuela,$Auditorio,$hora_inicio){
-		$data = Array("nombre_evento"=>$nombre_evento,
-                      "ponente"=>$ponente,
-                      "descripcion"=>$descripcion,
-                      "fecha"=>$fecha,
-                      "escuela"=>1,
-                      "auditorio"=>$Auditorio,
-                      "hora_inicio" => $hora_inicio);
+	public function addEvento($data){
         $result = $this->db->insert('Eventos', $data);
         return $result;
 	}
