@@ -77,7 +77,10 @@
                   </div>
                   <input id="timepicker"  name= "hora_inicio" class="form-control timepicker" type="text">
                 </div>
-                <br>
+                <div class="form-group">
+                  <label for="exampleInputFile">Imagen del evento</label>
+                    <input type="file" id="foto" name="foto">
+                </div>
                 <div class="box-footer">
                   <button class="btn btn-primary" type="submit">Publicar</button>
                 </div>
@@ -106,12 +109,15 @@ $(function () {
     });
     $("#event-form").submit(function(e){
     e.preventDefault();
+    var formData = new FormData(this);
     $.ajax({
     url: "<?=base_url()?>Admin/ajax_create_evento",
     type: "post",
-    data: $(this).serialize(),
+    data: formData,
     dataType:'json',
     cache : false,
+    contentType: false,
+    processData: false,
     success:function(data){
       if(data.codigo==0){
         $('#modal-success').modal('show');

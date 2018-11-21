@@ -158,6 +158,9 @@ class Superadmin extends CI_Controller {
    		header('Content-Type: application/json');
 		echo json_encode($respuesta);
 	}
+	public function borrarEscuela(){
+		echo $this->mescuela->borrarEscuela(1);
+	}
 	public function ajax_delete_evento(){
 		$respuesta = Array();
 		if(!$this->input->post()){
@@ -185,6 +188,5 @@ class Superadmin extends CI_Controller {
 		}
    	  header('Content-Type: application/json');
  	  echo json_encode($respuesta);
-
 	}
 }
