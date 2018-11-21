@@ -10,7 +10,7 @@ class Calendar extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Mcalendar');
+        $this->load->model('Mevento');
     }
     public function index(){
 
@@ -20,7 +20,8 @@ class Calendar extends CI_Controller
 
     }
     public function getEventos(){
-        $r= $this->Mcalendar->getEventos();
+        $r= $this->Mevento->getEventosCal();
         echo json_encode($r);
     }
 }
+//ELIMINAR MODELO DEL CALENDARIO, EL METODO GETEVENTOS PASARLO AL MODELO DE EVENTOS
