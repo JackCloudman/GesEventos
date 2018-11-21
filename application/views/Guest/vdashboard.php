@@ -87,8 +87,10 @@
                 <div class="description-block">
                   <h5 class="description-header">Descripción</h5>
                   <span></i><?php $larga = $datos->descripcion;
-                    $corta = word_limiter($larga, 20);
-                    echo $corta;?></span>
+                    $corta = character_limiter($larga, 20);
+                    echo "===";
+                    echo $corta;
+                    echo "==="?></span>
                 </div>
                 <!-- /.description-block -->
               </div>
