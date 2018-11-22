@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Eventos extends CI_Controller {
+class Evento extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->library('session');

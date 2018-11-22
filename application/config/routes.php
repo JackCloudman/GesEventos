@@ -58,4 +58,3 @@ $route['Superadmin/eventos'] = 'Superadmin/eventos_index';
 $route['Admin/eventos'] = 'Admin/eventos_index';
 $route['Admin/eventos/crear'] = 'Admin/eventos_crear';
 $route['Evento/(:any)'] = "VerEvento/index/$1";
-$route['Evento'] = "Dashboard/index";
