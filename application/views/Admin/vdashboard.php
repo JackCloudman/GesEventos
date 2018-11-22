@@ -69,13 +69,13 @@
         <!-- Widget: user widget style 1 -->
         <div class="box box-widget widget-user">
           <!-- Add the bg color to the header using any of the bg-* classes -->
-          <div class="widget-user-header bg-black" style="background: url('assets/dist/img/photo1.png') center center;">
+          <div class="widget-user-header bg-black" style="background: url('<?=base_url()?>assets/eventos/fotos/<?=$e->foto?>') center center;background-size:100%;">
             <h3 class="widget-user-username"><?php echo $e->nombre_evento?></h3>
             <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> <?php echo $e->nombre?></h5>
           </div>
           <div class="box-footer">
             <div class="row">
-              <div class="col-sm-6 border-right">
+              <div class="col-sm-6">
                 <div class="description-block">
                   <h5 class="description-header"><h3><?php echo $e->fecha?></h3></h5>
                   <span class="description-text"><h4><i class="fa fa-clock-o"> </i></i> <?php echo $e->hora_inicio?></h4></span>
@@ -83,11 +83,11 @@
                 <!-- /.description-block -->
               </div>
               <!-- /.col -->
-              <div class="col-sm-6 border-right">
+              <div class="col-sm-6">
                 <div class="description-block">
                   <h5 class="description-header">Descripción</h5>
-                  <span></i><?php $larga = $e->descripcion;
-                    $corta = word_limiter($larga, 20);
+                  <span class="descripcion-text"><?php $larga = $e->descripcion;
+                    $corta = character_limiter($larga, 20);
                     echo $corta;?></span>
                 </div>
                 <!-- /.description-block -->
