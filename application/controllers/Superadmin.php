@@ -7,10 +7,10 @@ class Superadmin extends CI_Controller {
   		parent::__construct();
  		$this->usuario = $this->session->userdata("user");
 		if(!$this->usuario){
-			redirect('dashboard');	
+			redirect('dashboard');
 		}
-		if($this->usuario->nivel<3){
-			redirect('dashboard');	
+		if($this->usuario->nivel!=3){
+			redirect('dashboard');
 		}
 		$this->load->model('msuperadmin');
 		$this->load->model('musuario');
@@ -28,7 +28,7 @@ class Superadmin extends CI_Controller {
 		$data["contador"] = $contadorAll;
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardsa');
+		$this->load->view('SuperAdmin/vdashboard');
         $this->load->view('footers/vfooter');
 	}
 	public function eventos_index(){
@@ -39,9 +39,9 @@ class Superadmin extends CI_Controller {
 		$data = array("title"=>"Super Admin Dashboard");
 		$data["name"] = $name["nombre"]." ".$name["appat"];
 		$data["eventos"] = $eventos;
-		
+
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardevento');
+		$this->load->view('SuperAdmin/vlistaeventos');
 		return;
 	}
 	public function escuelas_index(){
@@ -54,7 +54,7 @@ class Superadmin extends CI_Controller {
 		$data["escuelas"] = $escuelas;
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardescuela');
+		$this->load->view('SuperAdmin/vlistaescuelas');
         $this->load->view('footers/vfooter');
 	}
 	public function escuelas_crear(){
@@ -67,7 +67,7 @@ class Superadmin extends CI_Controller {
 		$data["name"] = $name["nombre"]." ".$name["appat"];
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vformescuela');
+		$this->load->view('SuperAdmin/vformescuela');
         $this->load->view('footers/vfooter');
 	}
 	public function usuarios(){
@@ -80,14 +80,14 @@ class Superadmin extends CI_Controller {
 		$data["usuarios"] = $usuarios;
 
 		$this->load->view("headers/vheadersadmin",$data);
-		$this->load->view('vdashboardusuario');
+		$this->load->view('SuperAdmin/vlistausuarios');
         $this->load->view('footers/vfooter');
 	}
 	public function ajax_crear_escuela(){
 		$respuesta = Array();
 
 
-		
+
 		if(!$this->input->post()){
 			$respuesta["codigo"] = 1;
 			$respuesta["respuesta"] = "Sin parametros";
@@ -132,7 +132,7 @@ class Superadmin extends CI_Controller {
 					$escuela = Array(
 						"nombre"		=> $r["escuela"],
 						"direccion1"	=> $r["dir1"],
-						"direccion2"	=> $r["dir2"],				
+						"direccion2"	=> $r["dir2"],
 					);
 					$admin = Array(
 						"username"		=> $r["username"],
@@ -185,6 +185,6 @@ class Superadmin extends CI_Controller {
 		}
    	  header('Content-Type: application/json');
  	  echo json_encode($respuesta);
-	
+
 	}
 }
