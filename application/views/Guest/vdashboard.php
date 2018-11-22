@@ -23,7 +23,7 @@
           <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
-            <a href="<?php echo base_url();?>VerEvento/index/<?php echo $e->id_evento;?>"
+            <a href="<?php echo base_url();?>Evento/<?php echo $e->id_evento;?>"
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-black" style="background: url('<?=base_url()?>assets/eventos/fotos/<?=$e->foto?>') center center;background-size:100%">
               <h3 class="widget-user-username"><?php echo $e->nombre_evento?></h3>
@@ -64,7 +64,7 @@
           <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <a href="#">
-            <div  class="widget-user-header bg-black" style="background: url('assets/dist/img/photo2.png') center center;">
+            <div  class="widget-user-header bg-black" style="background: url('assets/dist/img/photo2.png') center center;background-size:100%">
               <h3 class="widget-user-username">Toma de protesta</h3>
               <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> Auditorio ESCOM</h5>
             </div>

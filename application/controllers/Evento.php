@@ -18,9 +18,20 @@ class Evento extends CI_Controller {
         $this->load->model('mboleto');
         $this->load->library('form_validation');
     }
-    public function index()
+    public function index($idEvento=null)
     {
-      echo "Evento index";
+      if(!$idEvento)
+          redirect('Dashboard');;//Debe mandar la id!
+      $evento= $this->mevento->getEvento($idEvento);
+      if(!$evento){
+          print("El evento no existe :P");
+          return;
+      }
+      $data = array("title"=>"EVENTOS");
+      $data["evento"] = $evento;
+      $this->load->view('headers/vheader',array("title"=>"hola mundo"));
+      $this->load->view('vverevento',$data);
+      $this->load->view('footers/vfooter');
     }
     public function ajax_inscribir()
     {

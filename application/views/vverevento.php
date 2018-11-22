@@ -3,9 +3,9 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <div class="col-xs-6" id="NomEvento"><?= json_decode($eventos)->nombre_evento ?></div>
+            <div class="col-xs-6" id="NomEvento"><?= $evento->nombre_evento ?></div>
 
-            <div class="col-xs-6" id="fecha"><small><?= json_decode($eventos)->fecha ?></small></div>
+            <div class="col-xs-6" id="fecha"><small><?= $evento->fecha ?></small></div>
         </h1>
     </section>
 
@@ -21,18 +21,18 @@
                     <div class="box-body">
 
                         <div class="row">
-                            <div class="col-md-4"><img src="../../assets/eventos/fotos/<?php echo json_decode($eventos)->foto ?>" style="max-height: 100%; max-width: 100%"></div>
+                            <div class="col-md-4"><img src="<?=base_url()?>assets/eventos/fotos/<?php echo $evento->foto ?>" style="max-height: 100%; max-width: 100%"></div>
                             <div class="col-md-8" id="informacion">
                                 <div class="row form-group" style="...">
                                     <div class="col-md-12" id="informacion">
                                         <h3>Informaci&oacute;n</h3>
-                                        <?= json_decode($eventos)->descripcion ?>
+                                        <?= $evento->descripcion ?>
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-md-12" id="direccion" style="...">
                                         <h3>Direcci&oacute;n</h3>
-                                        <?= json_decode($eventos)->escuela ?> en el auditorio <?= json_decode($eventos)->auditorio ?>
+                                        <?= $evento->escuela ?> en el auditorio <?= $evento->auditorio ?>
 
                                     </div>
                                 </div>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="row" style="margin-top: 30px;">
                             <div class="col-md-offset-4">
-                                <button type="button" class="btn btn-block btn-primary">Inscribirse a evento</button>
+                                <button type="button" class="btn btn-block btn-primary" data-evento="<?=$evento->id_evento?>">Inscribirse a evento</button>
                             </div>
                         </div>
 
