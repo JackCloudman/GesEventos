@@ -206,10 +206,11 @@
              <div class="row">
           <?php  $this->load->helper('text');
           foreach($datos as $datos){?>
+
           <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
           <div class="box box-widget widget-user">
-            <a href="http://www.example.com">
+            <a href="<?php echo base_url();?>VerEvento/index/<?php echo $datos->id_evento;?>"
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-black" style="background: url('assets/dist/img/photo1.png') center center;">
               <h3 class="widget-user-username"><?php echo $datos->nombre_evento?></h3>
