@@ -3,7 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Dashboard<small> (Super Admin)</small>
+        Calendario<small> </small>
       </h1>
     </section>
 
@@ -13,7 +13,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Lista de usuarios</h3>
+              <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -36,9 +36,20 @@
 <script src="<?=base_url()?>/assets/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
 <script>
   $(document).ready(function() {
-    $.post('<?php echo base_url();?>Calendar/getEventos',
+        //Añadir el el atribudo url al json para que full calendar lo cargue
+      $.post('<?php echo base_url();?>Calendar/getEventos',
     function (data) {
-      //alert(data);
+        var aber=JSON.parse(data);
+        var i = 0;
+        var a="";
+
+        for (var range in aber)
+        {
+            a= "<?php echo base_url();?>"+"Evento/"+aber[range].id;
+            aber[range].url=a;
+        }
+
+        data = JSON.stringify(aber);
       $('#calendar').fullCalendar({
           header: {
             left: 'prev,next today',
@@ -47,7 +58,7 @@
           },
           defaultDate: new Date(),
           navLinks: true, // can click day/week names to navigate views
-          editable: true,
+          editable: false,
           eventLimit: true, // allow "more" link when too many events
           events: $.parseJSON(data)
       });
