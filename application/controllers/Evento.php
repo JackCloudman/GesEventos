@@ -24,11 +24,13 @@ class Evento extends CI_Controller {
           redirect('Dashboard');;//Debe mandar la id!
       $evento= $this->mevento->getEvento($idEvento);
       if(!$evento){
-          print("El evento no existe :P");
-          return;
+          redirect('Dashboard');
       }
+      
       $data = array("title"=>"EVENTOS");
       $data["evento"] = $evento;
+      $data['boleto'] = $this->mboleto->getBoleto($this->usuario->id_usuario,$idEvento);
+
       $this->load->view('headers/vheader',array("title"=>"hola mundo"));
       $this->load->view('vverevento',$data);
       $this->load->view('footers/vfooter');
