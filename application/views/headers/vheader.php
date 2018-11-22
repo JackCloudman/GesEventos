@@ -74,7 +74,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="<?=base_url()?>" class="logo">
+    <a href="<?=base_url()?>Dashboard" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>ES</span>
       <!-- logo for regular state and mobile devices -->
@@ -139,9 +139,8 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Accesos directos</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="https://github.com/JackCloudman"><i class="fa fa-github"></i> <span>JackCloudman</span></a></li>
-        <li><a href="NuevoEvento"><i class="fa fa-calendar-plus-o"></i> <span>Nuevo Evento</span></a></li>
-          <li><a href="Calendar"><i class="fa fa-calendar-o"></i><span>Calendario de Eventos</span></a> </li>
+          <li><a href="<?=base_url()?>Calendar"><i class="fa fa-calendar-o"></i><span>Calendario de Eventos</span></a> </li>
+          <li><a href="<?=base_url()?>Documentacion"><i class="fa fa-book"></i><span>Documentacion</span></a> </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

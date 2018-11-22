@@ -34,7 +34,7 @@ class Register extends CI_Controller {
 			}
 			$result = $this->musuario->register($nombre,$appat,$apmat,$username,$email,$password,$ocupacion,$edad,$sexo);
 			if($result){
-				echo "Registro exitoso!";
+				echo "Registro exitoso!"; 
 				return;
 			}
 		}else{
