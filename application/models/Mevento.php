@@ -53,6 +53,11 @@ class Mevento extends CI_Model
 		$this->db->where('id_evento',$id_evento);
 		return $this->db->get()->row();
 	}
+    public function getEventosCal(){
+        $this->db->select('id_evento id,nombre_evento title,fecha start');
+        $this->db->from('Eventos');
+        return $this->db->get()->result();
+    }
 }
 
  ?>
