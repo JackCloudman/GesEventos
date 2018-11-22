@@ -1,11 +1,50 @@
+<!-- Mensaje de alerta-->
+ <div class="modal modal-danger fade" id="modal-danger">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title" id="modal-titulo"></h4>
+       </div>
+       <div class="modal-body" id="modal-body">
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Cerrar</button>
+       </div>
+     </div>
+           <!-- /.modal-content -->
+   </div>
+         <!-- /.modal-dialog -->
+ </div>
+<!--Mensaje de success-->
+ <div class="modal modal-success fade" id="modal-success">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span></button>
+         <h4 class="modal-title">Finalizado!</h4>
+       </div>
+       <div class="modal-body">
+         <p>La escuela ha sido registrada con exito!</p>
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-outline pull-left" id="success" data-dismiss="modal">Cerrar</button>
+       </div>
+     </div>
+           <!-- /.modal-content -->
+   </div>
+         <!-- /.modal-dialog -->
+ </div>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper" xmlns="http://www.w3.org/1999/html">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <div class="col-xs-6" id="NomEvento"><?= json_decode($eventos)->nombre_evento ?></div>
+            <div class="col-xs-6" id="NomEvento"><?= $evento->nombre_evento ?></div>
 
-            <div class="col-xs-6" id="fecha"><small><?= json_decode($eventos)->fecha ?></small></div>
+            <div class="col-xs-6" id="fecha"><small><?= $evento->fecha ?></small></div>
         </h1>
     </section>
 
@@ -21,26 +60,30 @@
                     <div class="box-body">
 
                         <div class="row">
-                            <div class="col-md-4" id="imagen">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ligula purus, venenatis nec mauris vel, accumsan imperdiet metus. Vestibulum aliquet arcu sit amet metus blandit ullamcorper. Proin faucibus sapien sit amet ornare interdum. Duis nec dolor et lorem laoreet pulvinar. Morbi dictum risus sed pretium congue. Aenean posuere et urna non tristique. Vivamus sit amet nunc gravida, posuere magna at, maximus nisi. Aenean lectus elit, fringilla eget magna sit amet, gravida accumsan nisi. Fusce feugiat laoreet tellus, at ullamcorper justo pellentesque non. Morbi vel risus maximus, sagittis massa vel, luctus magna. Proin cursus tortor in ullamcorper varius. Etiam eget sapien felis. Nunc ut ipsum et tellus porta finibus ac et ligula. Nullam a dignissim massa.</div>
+                            <div class="col-md-4"><img src="<?=base_url()?>assets/eventos/fotos/<?php echo $evento->foto ?>" style="max-height: 100%; max-width: 100%"></div>
                             <div class="col-md-8" id="informacion">
-                                <h3>Informaci&oacute;n</h3>
-                                <?= json_decode($eventos)->descripcion ?>
-                            </div>
+                                <div class="row form-group" style="...">
+                                    <div class="col-md-12" id="informacion">
+                                        <h3>Informaci&oacute;n</h3>
+                                        <?= $evento->descripcion ?>
+                                    </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col-md-12" id="direccion" style="...">
+                                        <h3>Direcci&oacute;n</h3>
+                                        <?= $evento->escuela ?> en el auditorio <?= $evento->auditorio ?>
+
+                                    </div>
+                                </div>
                         </div>
-                        <div></div>
-                        <div class="row" style="margin-top:30px ;">
-                            <div class="col-md-4" id="mapa">
-                                Integer dui magna, rhoncus a erat semper, ornare laoreet dolor. Phasellus scelerisque nibh nunc, vel pretium ligula dapibus efficitur. Integer sit amet nibh sit amet tortor sagittis mollis. Ut nibh augue, feugiat non rhoncus ac, tincidunt ac magna. Nunc imperdiet, quam sit amet maximus tristique, nulla dui elementum massa, eget vulputate turpis leo sit amet diam. Nam facilisis metus nec hendrerit mattis. Morbi sed blandit justo. Ut lorem ipsum, varius vel fermentum a, viverra non lorem. Fusce pellentesque vestibulum odio, vitae dapibus nibh hendrerit vel. Etiam feugiat velit non lectus ultricies ultrices. Ut id odio enim.</div>
-                            <div class="col-md-8" id="direccion">
-                                <h3>Direcci&oacute;n</h3>
-                                <?= json_decode($eventos)->escuela ?> en el auditorio <?= json_decode($eventos)->auditorio ?>
-
-                            </div>
-
                         </div>
                         <div class="row" style="margin-top: 30px;">
                             <div class="col-md-offset-4">
-                                <button type="button" class="btn btn-block btn-primary">Inscribirse a evento</button>
+                              <?if(!$boleto){?>
+                                <button type="button" class="btn btn-primary" data-evento="<?=$evento->id_evento?>" id="inscribir">Inscribirse a evento</button>
+                                <?}else{?>
+                                  <button type="button" class="btn disabled btn-success" >Ya estas inscrito a este evento</button>
+                                  <?}?>
                             </div>
                         </div>
 
@@ -55,3 +98,33 @@
     </section>
     <!-- /.content -->
 </div>
+<script>
+	$(function(){
+    $('#success').on('click',function(){
+      location.reload();
+    });
+    $("#inscribir").on('click',function(e){
+      var evento = $(this).attr("data-evento");
+      $.ajax({
+   		url: "<?=base_url()?>Evento/ajax_inscribir",
+   		type: "POST",
+   		data: {id_evento:evento},
+      dataType:'json',
+      cache: false,
+   		success:function(data){
+        if(data.codigo==0){
+          $('#modal-success').modal('show');
+        }else{
+          $( "#modal-titulo" ).empty();
+          $( "#modal-body" ).empty();
+          $( "#modal-titulo" ).append(data.respuesta);
+          $( "#modal-body" ).append(data.errores);
+          $('#modal-danger').modal('show');
+        }
+        }
+   		});
+    });
+
+  });
+
+</script>
