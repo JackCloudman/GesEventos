@@ -11,18 +11,18 @@ class Mevento extends CI_Model
 	}
 	public function infoPorEvento()
 	{
-		$this->db->select('t1.nombre_evento, t1.fecha, t1.escuela, t1.hora_inicio, t1.descripcion, t1.id_evento, t2.nombre');
+		$this->db->select('t1.nombre_evento, t1.fecha, t1.escuela, t1.hora_inicio, t1.descripcion, t1.id_evento, t2.nombre,t1.foto');
 				$this->db->from('Eventos AS t1, Escuelas As t2');
 				$this->db->where('t2.id_escuela = t1.escuela');
 				return $this->db->get()->result();
 	}
-	public function allEscuelas()
+	/*public function allEscuelas()
 	{
 		$this->db->select('*');
 		$this->db->from('Escuelas');
 		return $this->db->get()->result();
 
-	}
+	}*/
 	public function nombre_escuela($id_escuela)
 	{
 		$this->db->select('nombre');
