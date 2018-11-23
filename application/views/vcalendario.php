@@ -45,7 +45,7 @@
 
         for (var range in aber)
         {
-            a= "<?php echo base_url();?>"+"VerEvento/index/"+aber[range].id;
+            a= "<?php echo base_url();?>"+"Evento/"+aber[range].id;
             aber[range].url=a;
         }
 
