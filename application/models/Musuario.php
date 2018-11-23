@@ -119,7 +119,7 @@ class Musuario extends CI_Model{
             return false;
         $id_user = ($result[0])->user;
         $this->db->where('id_usuario', $id_user);
-        $this->db->update('Usuarios', Array("password"=>$password));
+        $this->db->update('Usuarios', Array("password"=>password_hash($password, PASSWORD_DEFAULT)));
         if($this -> db -> affected_rows() == 1){
             $this->db->where('token', $TOKEN);
             $this->db->update('token', Array("usado"=>1)); 
