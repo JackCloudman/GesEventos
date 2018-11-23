@@ -35,6 +35,7 @@ class Recovery extends CI_Controller {
 
 
 		$exist = $this->musuario->existEmail($email);
+		$id = $this->musuario->getid($email);
 
 		if(!$exist){
 
@@ -47,7 +48,7 @@ class Recovery extends CI_Controller {
 			}else{
 
 
-				$this->sendMail($email);
+				$this->sendMail($email, $id['id_usuario']);
 
 			}
 
@@ -57,15 +58,15 @@ class Recovery extends CI_Controller {
 
 	public function reset($TOKEN=null){
 
-		if(!$TOKEN)
+		if(!$TOKEN){
+			redirect('Login','refresh');
+		}
 
-			redirect('home','refresh');
-
-		$verify = $this->perfil_data->verifyTOKEN($TOKEN);
+		$verify = $this->musuario->verifyTOKEN($TOKEN);
 
 		if($verify['code']){
 
-			$this->load->view('newpassword',["TOKEN"=>$TOKEN]);
+			$this->load->view('vnewpasword',["TOKEN"=>$TOKEN]);
 
 		}
 
@@ -79,13 +80,16 @@ class Recovery extends CI_Controller {
 
 	public function changepassword(){
 
-		header("content-type: application/json");
+		
 
 		$pass1 = $this -> input -> post('pass1');
 
 		$pass2 = $this -> input -> post('pass2');
 
 		$token = $this->input->post('token');
+		echo "hola".$pass1;
+		echo "hola".$pass2;
+		echo "hola".$token;
 
 		if(!$pass1||!$pass2||!$token){
 
@@ -113,7 +117,7 @@ class Recovery extends CI_Controller {
 
 		#Verificamos nuevamente el token!
 
-		$verify = $this->perfil_data->verifyTOKEN($token);
+		$verify = $this->musuario->verifyTOKEN($token);
 
 		if($verify['code']){
 
@@ -149,7 +153,7 @@ class Recovery extends CI_Controller {
 
 
 
-	private function sendMail( $email){
+	private function sendMail( $email, $id){
 
 
 		if(strlen($email) == 0){
@@ -166,7 +170,7 @@ class Recovery extends CI_Controller {
 
 		# URL para cambiar la contraseña
 
-		//$TOKEN =  $this->perfil_data->createRestoreURL($id);
+		$TOKEN =  $this->musuario->createRestoreURL($id);
 
 		#
 
