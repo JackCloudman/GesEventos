@@ -116,12 +116,12 @@ class Recovery extends CI_Controller {
 		}
 
 		#Verificamos nuevamente el token!
-
+		
 		$verify = $this->musuario->verifyTOKEN($token);
 
 		if($verify['code']){
 
-			$result = $this->user->updatePassword($token,$pass1);
+			$result = $this->musuario->updatePassword($token,$pass1);
 
 			if($result){
 

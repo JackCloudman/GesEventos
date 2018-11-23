@@ -197,6 +197,11 @@ i.fa{
 </body>
   <script type="text/javascript">
     function sendit(){
+        alert($('#pass1').val());
+        alert($('#pass2').val());
+        alert("<?=$TOKEN?>");
+
+
             if($('#pass1').val() == ""||$('#pass2').val() == "") return false;
             if($('#pass1').val()!=$('#pass2').val()){
                 alert("Las contraseñas no coinciden!");
@@ -205,34 +210,18 @@ i.fa{
             $.ajax({
                 type: "POST",
                 url: "<?=base_url()?>/Recovery/changepassword",
-                data: { pass1: $('#pass1').val(),pass2:$('#pass1').val(),token:"<?=$TOKEN?>"},
+                data: { pass1: $('#pass1').val(),pass2:$('#pass2').val(),token:"<?=$TOKEN?>"},
                 success: function(response) {
                     console.log(response);
                     if (response.result != 'failed') {
                         $('#custom-message-title').html('<i class="fa fa-check" aria-hidden="true"></i> ¡Éxito!');
-                        $('#custom-message-body').html('¡Tu solicitud se envió con éxito!<br />'+response.message);
-                        $('#custom-message-close').addClass("btn-success");
-                        $('#custom-message-close').html('<i class="fa fa-thumbs-up" aria-hidden="true"></i> ¡Genial!');
-                        $('#username').val("");
                         $('#custom-message').modal('show');
                     }else{
                         console.log("Error recibido. Detalles:\n"+response.info);
-                        $('#custom-message-title').html('<i class="fa fa-exclamation-triangle"></i> ¡Error!');
-                        $('#custom-message-body').html('Tu solicitud no puede ser atendida este momento.<br />'+response.message);
-                        $('#custom-message-close').addClass("btn-default");
-                        $('#custom-message-close').html('Cerrar');
-                        $('#custom-message').modal('show');
                     }
                 },
                 error: function (xhr, status, errorThrown) {
                     console.log("Error recibido. Detalles:\n");
-                    console.log("XHR: "+ xhr +"\n\nEstado: "+ status +"\n\nMensaje: "+errorThrown);
-                    $('#custom-message-title').html('<i class="fa fa-exclamation-triangle"></i> ¡Error!');
-                    $('#custom-message-body').html('Parece que el servidor esta saturado, por favor, intenta más tarde.');
-                    $('#custom-message-close').addClass("btn-default");
-                    $('#custom-message-close').html('Cerrar');
-                    $('#custom-message').modal('show');
-                    grecaptcha.reset();
                 },
                 timeout: 4000
             });
