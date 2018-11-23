@@ -60,4 +60,7 @@ class Login extends CI_Controller {
 		$this->session->unset_userdata('user');
 		redirect(base_url());
 	}
+	public function recovery(){
+		$this->load->view('vrecovery');
+	}
 }

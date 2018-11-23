@@ -46,5 +46,68 @@ class Musuario extends CI_Model{
         return Array("nombre"=>"INDEFINIDO","appat"=>"INDEFINIDO","apmat"=>"INDEFINIDO");
       return $name;
     }
+        function createRestoreURL($user_id){
+
+        $data = Array();
+
+        $date = date('Y-m-d H:i:s');
+
+        $data['user'] = $user_id;
+
+        $data['fecha_creacion'] = $date;
+
+        $data['usado'] = "no";
+
+        $clave = $date."".$user_id;
+
+        $TOKEN = hash('sha256',$clave);
+
+        $data['token'] = $TOKEN;
+
+        if($this->db->insert('token',$data))
+
+            return $TOKEN;
+
+        else
+
+            return false;
+
+    }
+        public function getid($correo){
+      $this->db->select('id_usuario');
+      $this->db->from('Usuarios');
+      $this->db->where('correo',$correo);
+      $id = $this->db->get()->row_array();
+      if(!$id)
+        return false;
+      return $id;
+    }
+    function verifyTOKEN($TOKEN){
+
+        $q = "SELECT usado,fecha_creacion from token where token='".$TOKEN."';";
+
+        $result = ($this->db->query($q))->result();
+
+        if(!$result)
+
+            return Array("code"=>false,"message"=>"La clave no existe!");
+
+        if(($result[0])->usado)
+
+            return Array("code"=>false,"message"=>"Ya usaste este token!");
+
+        $fecha_creacion = ($result[0])->fecha_creacion;
+
+        $fecha_expira = date('Y-m-d H:i:s',strtotime($fecha_creacion. ' + 3 days'));
+
+        $fecha_actual = date('Y-m-d H:i:s');
+
+        if($fecha_actual<=$fecha_expira)
+            return Array("code"=>true,"message"=>"Clave encontrada!");
+
+        else
+            return Array("code"=>false,"message"=>"Clave expirada!");
+
+    }
   
 }
