@@ -55,7 +55,7 @@ class Mevento extends CI_Model
         $this->db->select("*");
         $this->db->from('Eventos');
         $this->db->where('id_evento',$id_evento);
-        $this->db->join('escuelas','eventos.escuela = escuelas.id_escuela');
+        $this->db->join('Escuelas','Eventos.escuela = Escuelas.id_escuela');
         return $this->db->get()->row();
     }
 
@@ -76,7 +76,7 @@ class Mevento extends CI_Model
 
 		public function EditarEvento($data){
 			 $this->db->where('id_evento',$data['id_evento']);
-			 $result= $this->db->update('eventos',$data);
+			 $result= $this->db->update('Eventos',$data);
 			return $result;
 		}
 }
