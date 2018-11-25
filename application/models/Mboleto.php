@@ -17,11 +17,11 @@ class Mboleto extends CI_Model{
 join Eventos e on b.evento = e.id_evento
 join Usuarios u on b.usuario = u.id_usuario
 where b.id_boleto='".$id_boleto."';";
-      $data = $this->db->query($q);
+      $data = $this->db->query($q)->result();
       if(!$data)
         return Array();
       else{
-        return $data->result()[0];
+        return $data[0];
       }
     }
 }
