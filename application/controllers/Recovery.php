@@ -52,7 +52,7 @@ class Recovery extends CI_Controller {
 
 			}
 
-		
+
 
 	}
 
@@ -80,7 +80,7 @@ class Recovery extends CI_Controller {
 
 	public function changepassword(){
 
-		
+
 
 		$pass1 = $this -> input -> post('pass1');
 
@@ -116,12 +116,12 @@ class Recovery extends CI_Controller {
 		}
 
 		#Verificamos nuevamente el token!
-
+		
 		$verify = $this->musuario->verifyTOKEN($token);
 
 		if($verify['code']){
 
-			$result = $this->user->updatePassword($token,$pass1);
+			$result = $this->musuario->updatePassword($token,$pass1);
 
 			if($result){
 
@@ -176,11 +176,11 @@ class Recovery extends CI_Controller {
 
 		# Asunto
 
-		$asunto = "Acceso al sistema escolar";	
+		$asunto = "Acceso al sistema escolar";
 
 		# Variables del cuerpo
 
-		# 
+		#
 
 		$gesCelex = "http://www.juanjoserv.com/";
 
@@ -226,7 +226,7 @@ class Recovery extends CI_Controller {
 
 	    $this->email->message($body_msg);
 
-	    $this->email->to($email);	
+	    $this->email->to($email);
 
 	    $result = $this->email->send();
 
@@ -238,7 +238,7 @@ class Recovery extends CI_Controller {
 
 	    $correoX = "";
 
- 		for ($i = 0; $i < strlen($arr_email[0]); $i++) { 
+ 		for ($i = 0; $i < strlen($arr_email[0]); $i++) {
 
  			$correoX .= "*";
 

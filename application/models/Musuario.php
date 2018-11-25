@@ -108,6 +108,23 @@ class Musuario extends CI_Model{
         else
             return Array("code"=>false,"message"=>"Clave expirada!");
 
+
+    }
+        function updatePassword($TOKEN=null,$password=null){
+        if(!$TOKEN||!$password)
+            return false;
+        $q = "SELECT user from token where token='".$TOKEN."' and usado=0;";
+        $result = ($this->db->query($q))->result();
+        if(!$result)
+            return false;
+        $id_user = ($result[0])->user;
+        $this->db->where('id_usuario', $id_user);
+        $this->db->update('Usuarios', Array("password"=>password_hash($password, PASSWORD_DEFAULT)));
+        if($this -> db -> affected_rows() == 1){
+            $this->db->where('token', $TOKEN);
+            $this->db->update('token', Array("usado"=>1)); 
+       }
+        return ($this -> db -> affected_rows() == 1);
     }
   
 }
