@@ -359,22 +359,20 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body" style="">
-              <b>Nombre:</b> Mostrar video en la descripción del evento<br/>
+              <b>Nombre:</b> Mostrar información de evento<br/>
               <b>Autor:</b> Barrera Estrella Emanuel<br/>
               <b>Identificador:</b> CU9<br/>
               <b>Versión:</b> 1.0<br/>
-              <b>Revisor:</b> Rodríguez Casas Erik Emmanuel<br/>
-              <b>Descripción:</b> Mostrará al usuario un video dentro de la información del evento.<br/>
-              <b>Precondiciones:</b> El evento debe de estar registrado y debe de haber sido registrado uno o más links a videos pertenecientes a una aplicación de visualización de videos.<br/>
-              <b>Postcondiciones:</b> El usuario podrá visualizar un fragmento de una aplicación de videos dentro del sistema interactuando de forma igual que interactúa en la aplicación de videos.<br/>
+              <b>Revisor:</b> Estrada Pichardo Jonatán Isúi<br/>
+              <b>Descripción:</b> Mostrará al usuario el nombre del evento, la fecha, una imagen, la información del evento así como un mapa con la ubicación del evento y su dirección[UI 12]. El usuario podrá  registrarse a un evento en esta UI.
+<br/>
+              <b>Precondiciones:</b> El evento debe de estar registrado y el usuario desea ver la información del evento.<br/>
+              <b>Postcondiciones:</b> El usuario podrá visualizar la información del evento.<br/>
               <b>Curso básico de acción:</b><br/>
               <ol align="justify">
-                <li value="1">El caso de uso inicia cuando el usuario ingresa a la descripción del evento.</li>
-                <li>El sistema despliega la información de un evento.</li>
-                <li>En una sección estará disponible la visualización de uno o varios videos respecto al evento.</li>
-                <li>El usuario dirige a la sección de los videos y puede interactuar con el video de forma nativa a cómo está hecha la plataforma de visualización de videos.</li>
-                <li>El usuario podrá hacer click sobre el visualizador de video para reproducir, pausar, adelantar o atrasar el video.</li>
-                <li>El caso de uso termina cuando el usuario acaba de ver el video.</li>
+                <li value="1">El caso de uso inicia cuando el usuario quiere saber la información de un evento.</li>
+                <li>El usuario ingresa a la descripción del evento mediante el botón “Mostrar información”.</li>
+                <li>El sistema despliega la información de un evento en la UI 12.</li>
               </ol><br/><br/><br/>
             </div>
             <!-- /.box-body -->
