@@ -12,4 +12,16 @@ class Mboleto extends CI_Model{
         return $data[0];
       }
     }
+    public function get($id_boleto){
+      $q = "SELECT e.nombre_evento nombre_evento,e.fecha fecha,e.auditorio lugar,u.nombre nombre,b.qr_key qr from Boletos b
+join Eventos e on b.evento = e.id_evento
+join Usuarios u on b.usuario = u.id_usuario
+where b.id_boleto='".$id_boleto."';";
+      $data = $this->db->query($q);
+      if(!$data)
+        return Array();
+      else{
+        return $data->result()[0];
+      }
+    }
 }
