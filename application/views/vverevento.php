@@ -71,7 +71,7 @@
                                 <div class="row form-group">
                                     <div class="col-md-12" id="direccion" style="...">
                                         <h3>Direcci&oacute;n</h3>
-                                        <?= $evento->escuela ?> en el auditorio <?= $evento->auditorio ?>
+                                        <?= $evento->nombre ?> en el auditorio <?= $evento->auditorio ?>
 
                                     </div>
                                 </div>
