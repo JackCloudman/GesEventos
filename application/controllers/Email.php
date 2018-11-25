@@ -8,6 +8,13 @@ class Email extends CI_Controller
         $this->load->config('mail');
         $email_settings = $this->config->item('email');
         $this->email->initialize($email_settings);
+        $this->usuario = $this->session->userdata("user");
+    		if(!$this->usuario){
+    			redirect('dashboard');
+    		}
+    		if($this->usuario->nivel!=3){
+    			redirect('dashboard');
+    		}
     }
     public function index(){
       echo "<form action='Email/doit' method='post'>
@@ -22,7 +29,7 @@ class Email extends CI_Controller
     	$this->email->set_newline("\r\n");
     	$this->email->from("no-reply@juanjoserv.com");
     	$this->email->subject($data['subject']);
-    	$this->email->message($this->load->view('Email/vreset',[],TRUE));
+    	$this->email->message($data['message']);
     	$this->email->to($data['to']);
     	$result = $this->email->send();
       if($result){
