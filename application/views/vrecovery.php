@@ -131,7 +131,7 @@ i.fa{
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect. -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/skin-blue.min.css">
-  <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?=base_url()?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
@@ -158,31 +158,36 @@ i.fa{
             <div class="col-s-12">
               <h1>
               <i class="fa fa-rocket fa-4x bg-primary"></i>
-              </h1> 
+              </h1>
             </div>
             </div>
             <div class="row">
-              <div class="col-xs-">
-                <a href="#" class="active" id="login-form-link">Recuperar contraseña</a>
-              </div>
             </div>
             <hr>
           </div>
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <form id="resetPassword" name="resetPassword" method="post" action="<?php echo base_url();?>Recovery/doit" onsubmit ='return validate()'>
+                <div class="alert alert-danger hidden" id="error" role="alert">
+                </div>
+                <div class="alert alert alert-success hidden" id="finalizado" role="alert">
+                  Revisa tu correo y sigue las instrucciones para reestablecer tu contraseña!
+                </div>
+                <form id="recovery-form" method="post">
                   <div class="form-group">
-                    <input type="email" name="mail" id="username" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
+                    <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
                   </div>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Iniciar">
+                        <input type="submit" name="login-submit" id="submit" tabindex="4" class="form-control btn btn-login" value="Recuperar contraseña">
                       </div>
                     </div>
                   </div>
                 </form>
+                <div class="text-center">
+                  <a href="<?php echo base_url();?>login" tabindex="5" class="forgot-password">Iniciar sesion</a>
+                </div>
               </div>
             </div>
           </div>
@@ -191,51 +196,30 @@ i.fa{
     </div>
   </div>
   <script type="text/javascript">
-    $(function() {
-
-    $('#login-form-link').click(function(e) {
-    $("#login-form").delay(100).fadeIn(100);
-    $("#register-form").fadeOut(100);
-    $('#register-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-  $('#register-form-link').click(function(e) {
-    $("#register-form").delay(100).fadeIn(100);
-    $("#login-form").fadeOut(100);
-    $('#login-form-link').removeClass('active');
-    $(this).addClass('active');
-    e.preventDefault();
-  });
-  $("#login-form").submit(function(e){
-    e.preventDefault();
-    //return;
-    $.ajax({
-    url: "login/iniciar",
-    type: "post",
-    data: $(this).serialize(),
-    success:function(data){
-      alert(data);
-      if(data!="Usuario o contraseña incorrectos"){
-        location.reload();
-      }
-            }
+  $(function() {
+    $("#recovery-form").submit(function(e){
+      e.preventDefault();
+      $("#submit").attr("disabled", true);
+      $('.alert').addClass("hidden");
+      $('#error').empty();
+      $('#recovery-form').slideUp();
+      $.ajax({
+        url: "<?=base_url()?>recovery/ajax_reiniciar",
+        type: "post",
+        data: $(this).serialize(),
+        success:function(data){
+          if(data.codigo==0){
+            $('#finalizado').removeClass('hidden');
+            $('#recovery-form').slideUp();
+          }else{
+            $('#error').removeClass('hidden');
+            $("#error").append(data.respuesta);
+            $("#submit").attr("disabled", false);
+            $('#recovery-form').slideDown();
+          }
+        }
+      });
     });
-  })
-  $("#register-form").submit(function(e){
-    e.preventDefault();
-    $.ajax({
-    url: "register",
-    type: "post",
-    data: $(this).serialize(),
-    success:function(data){
-      alert(data+"\nInicia ahora sesion!");
-      if(data=="Registro exitoso!"){
-        location.reload();
-      }
-            }
-    });
-  })
   });
 
   </script>

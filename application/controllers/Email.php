@@ -22,7 +22,7 @@ class Email extends CI_Controller
     	$this->email->set_newline("\r\n");
     	$this->email->from("no-reply@juanjoserv.com");
     	$this->email->subject($data['subject']);
-    	$this->email->message($data['message']);
+    	$this->email->message($this->load->view('Email/vreset',[],TRUE));
     	$this->email->to($data['to']);
     	$result = $this->email->send();
       if($result){

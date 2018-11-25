@@ -161,28 +161,28 @@ i.fa{
               </h1>
             </div>
             </div>
-            <div class="row">
-              <div class="col-xs-">
-                <a href="#" class="active" id="login-form-link">Restablecer contraseña</a>
-
-              </div>
-            </div>
             <hr>
           </div>
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <form id="resetPassword" >
+                <div class="alert alert-danger hidden" id="error" role="alert">
+                </div>
+                <div class="alert alert alert-success hidden" id="finalizado" role="alert">
+                  La contraseña ha sido cambiada, reedireccionando...
+                </div>
+                <form id="resetPassword" method="post">
+                  <input type="hidden" name="token" value="<?=$TOKEN?>">
                   <div class="form-group">
-                   <input type="password" class="form-control" placeholder="Nueva contraseña" required autofocus id="pass1"/>
+                   <input type="password" class="form-control" placeholder="Nueva contraseña" required autofocus name="password"/>
                   </div>
                   <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Repetir contraseña" required autofocus id="pass2"/>
+                    <input type="password" class="form-control" placeholder="Repetir contraseña" required autofocus name="confirm_password"/>
                   </div>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <button onclick="sendit()" class="form-control btn btn-login" value="Restablecer">Enviar</button>
+                        <input type="submit" id="submit" class="form-control btn btn-login" value="Restablecer">
                       </div>
                     </div>
                   </div>
@@ -196,35 +196,30 @@ i.fa{
   </div>
 </body>
   <script type="text/javascript">
-    function sendit(){
-        alert($('#pass1').val());
-        alert($('#pass2').val());
-        alert("<?=$TOKEN?>");
-
-
-            if($('#pass1').val() == ""||$('#pass2').val() == "") return false;
-            if($('#pass1').val()!=$('#pass2').val()){
-                alert("Las contraseñas no coinciden!");
-                return false;
-            }
-            $.ajax({
-                type: "POST",
-                url: "<?=base_url()?>/Recovery/changepassword",
-                data: { pass1: $('#pass1').val(),pass2:$('#pass2').val(),token:"<?=$TOKEN?>"},
-                success: function(response) {
-                    console.log(response);
-                    if (response.result != 'failed') {
-                        $('#custom-message-title').html('<i class="fa fa-check" aria-hidden="true"></i> ¡Éxito!');
-                        $('#custom-message').modal('show');
-                    }else{
-                        console.log("Error recibido. Detalles:\n"+response.info);
-                    }
-                },
-                error: function (xhr, status, errorThrown) {
-                    console.log("Error recibido. Detalles:\n");
-                },
-                timeout: 4000
-            });
+  $(function() {
+    $("#resetPassword").submit(function(e){
+      e.preventDefault();
+      $("#submit").attr("disabled", true);
+      $("#error").empty();
+      $('#resetPassword').slideUp();
+      $.ajax({
+        url: "<?=base_url()?>recovery/changepassword",
+        type: "post",
+        data: $(this).serialize(),
+        success:function(data){
+          if(data.codigo==0){
+            $('#finalizado').removeClass('hidden');
+            $('#resetPassword').slideUp();
+            setTimeout(function(){ window.location = "<?=base_url()?>login"; }, 5000);
+          }else{
+            $('#error').removeClass('hidden');
+            $("#error").append(data.errores);
+            $("#submit").attr("disabled", false);
+            $('#resetPassword').slideDown();
+          }
         }
+      });
+    });
+  });
   </script>
 </html>
