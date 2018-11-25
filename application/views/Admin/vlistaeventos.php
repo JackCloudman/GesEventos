@@ -37,6 +37,7 @@
                 <th>
                   <h4>
       <i class= "fa fa-trash del" data-evento="<?=$e->id_evento;?>"></i>
+      <i class= "fa fa-pencil edit" data-evento="<?=$e->id_evento;?>"></i>
                 </h4>
                 </th>
               </tr>
@@ -66,6 +67,10 @@
 <script>
 $(function () {
   $('#escuelas').DataTable();
+  $(".edit").on('click',function(e){
+    var evento = $(this).attr("data-evento");
+    $(location).attr('href', '<?=base_url()?>Admin/eventos/editar/'+evento)
+  });
   $(".del").on('click',function(e){
     var evento = $(this).attr("data-evento");
     $.ajax({
