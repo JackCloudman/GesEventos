@@ -76,6 +76,7 @@ class Mevento extends CI_Model
 
 		public function EditarEvento($data){
 			 $this->db->where('id_evento',$data['id_evento']);
+			 $this->db->where('escuela',$data['escuela']);
 			 $result= $this->db->update('Eventos',$data);
 			return $result;
 		}
