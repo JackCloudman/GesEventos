@@ -90,7 +90,11 @@ class Evento extends CI_Controller {
     }
 
   }
-  public function test($id_evento){
-    print_r($this->mevento->isdisponible($id_evento));
+  public function test($busqueda){
+    $eventos = $this->mevento->search($busqueda);
+    foreach ($eventos as $e) {
+      print_r($e);
+      echo "<br>=====<br>";
+    }
   }
 }
