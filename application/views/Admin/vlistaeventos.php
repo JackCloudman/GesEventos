@@ -23,6 +23,7 @@
                 <th>Nombre del evento</th>
                 <th>Fecha del evento</th>
                 <th>Escuela</th>
+                <th>Boletos</th>
                 <th>Accion</th>
               </tr>
               </thead>
@@ -34,12 +35,13 @@
                 <td><?=$e->nombre_evento?></td>
                 <td><?=$e->fecha?></td>
                 <td><?=$e->nombre?></td>
-                <th>
+                <td><?=$e->inscritos?>/<?=$e->boletos?></td>
+                <td>
                   <h4>
       <i class= "fa fa-trash del" data-evento="<?=$e->id_evento;?>"></i>
       <i class= "fa fa-pencil edit" data-evento="<?=$e->id_evento;?>"></i>
                 </h4>
-                </th>
+              </td>
               </tr>
               <?php }?>
               </tbody>

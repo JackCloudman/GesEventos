@@ -99,7 +99,7 @@ class Admin extends CI_Controller {
       $this->form_validation->set_rules('descripcion','Descripcion','required');
       $this->form_validation->set_rules('fecha','Fecha','required|callback_dob_check');
       $this->form_validation->set_rules('hora_inicio','Hora','required|trim|min_length[7]|max_length[8]');
-      $this->form_validation->set_rules('invitados', 'Numero de invitados', 'required|regex_match[/^[1-9]{1}[0-9]{0,5}$/]');
+      $this->form_validation->set_rules('boletos', 'Numero de boletos', 'required|regex_match[/^[1-9]{1}[0-9]{0,5}$/]');
       $this->form_validation->set_data($this->input->post());
 
       $validate = $this->form_validation->run();
@@ -144,8 +144,6 @@ class Admin extends CI_Controller {
         }
         $data["escuela"] = $this->mescuela->getEscuelaByAdmin($usuario->id_usuario)->id_escuela;
         $data["foto"] = $nombreArchivo;
-        $data["numero_invitados"] = $data["invitados"];
-        unset($data["invitados"]);
         $result =  $this->mevento->addEvento($data);
         if($result){
           $respuesta["codigo"] = 0;
