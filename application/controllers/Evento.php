@@ -90,8 +90,8 @@ class Evento extends CI_Controller {
     }
 
   }
-  public function test($busqueda){
-    $eventos = $this->mevento->search($busqueda);
+  public function buscar($busqueda){
+    $eventos = $this->mevento->search(urldecode($busqueda));
     foreach ($eventos as $e) {
       print_r($e);
       echo "<br>=====<br>";
