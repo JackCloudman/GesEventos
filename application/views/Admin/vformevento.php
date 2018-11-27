@@ -77,12 +77,12 @@
                   </div>
                   <input id="timepicker"  name= "hora_inicio" class="form-control timepicker" type="text">
                 </div>
-                <label class="o">Numero de invitados maximo:</label>
+                <label class="o">Numero de boletos maximo:</label>
                   <div class="input-group">
                     <div class="input-group-addon">
                       <i class="fa fa-user"></i>
                     </div>
-                <input class="form-control" name="invitados" placeholder="10"  type="text">
+                <input class="form-control" name="boletos" placeholder="10"  type="text">
                   </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Imagen del evento</label>

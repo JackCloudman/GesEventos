@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Mevento extends CI_Model
 {
     public function addEvento($data){
+        $data["hora_inicio"] = date("H:i:s",strtotime($data["hora_inicio"]));
         $result = $this->db->insert('Eventos', $data);
         return $result;
     }
@@ -43,7 +44,7 @@ class Mevento extends CI_Model
 		return $this->db->delete('Eventos', array('id_evento' => $id_evento));
 	}
 	public function getEventosByEscuela($id_escuela){
-		$q = "SELECT * from Eventos e
+		$q = "SELECT es.*,e.*,(SELECT COUNT(1) FROM Boletos b WHERE b.evento = e.id_evento) AS inscritos from Eventos e
 		join Escuelas es on es.id_escuela=e.escuela
 		where escuela = '".$id_escuela."';";
 	    $result = $this->db->query($q);
@@ -64,7 +65,17 @@ class Mevento extends CI_Model
         $this->db->from('Eventos');
         return $this->db->get()->result();
     }
-
+    public function isdisponible($id_evento){
+      $this->db->select("count(1) n_boletos");
+      $this->db->from('Boletos');
+      $this->db->where('evento',$id_evento);
+      $boletos_registrados =  $this->db->get()->row()->n_boletos;
+      $this->db->select("boletos");
+      $this->db->from('Eventos');
+      $this->db->where('id_evento',$id_evento);
+      $boletos_totales  = $this->db->get()->row()->boletos;
+      return $boletos_totales - $boletos_registrados;
+    }
 		public function inscribir($id_usuario,$id_evento){
 			$data = [
 				"usuario" => $id_usuario,

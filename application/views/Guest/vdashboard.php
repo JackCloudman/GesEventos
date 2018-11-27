@@ -36,7 +36,7 @@
                 <div class="col-sm-6 border-right">
                   <div class="description-block">
                     <h5 class="description-header"><h3><?php echo $e->fecha?></h3></h5>
-                    <span class="description-text"><h4><i class="fa fa-clock-o"> </i></i> <?php echo $e->hora_inicio?></h4></span>
+                    <span class="description-text"><h4><i class="fa fa-clock-o"> </i></i> <?php echo date("h:i A",strtotime($e->hora_inicio))?></h4></span>
                   </div>
                   <!-- /.description-block -->
                 </div>
