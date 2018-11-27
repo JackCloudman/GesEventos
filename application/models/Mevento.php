@@ -80,6 +80,13 @@ class Mevento extends CI_Model
 			 $result= $this->db->update('Eventos',$data);
 			return $result;
 		}
+		public function obtain_events_user($id= null){
+		      $this->db->select('*');
+		      $this->db->from('Boletos');
+		      $this->db->where('usuario',$id);
+		      $this->db->join('Eventos', 'Eventos.id_evento = Boletos.evento');
+		   	  return $this->db->get()->result();
+    }
 }
 
  ?>
