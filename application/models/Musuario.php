@@ -17,6 +17,13 @@ class Musuario extends CI_Model{
         return false;
       return true;
     }
+    public function existEmail($email){
+      $q = "select 1 from Usuarios where correo='".$email."';";
+      $result = $this->db->query($q)->result();
+      if(!$result)
+        return false;
+      return true;
+    }
     public function register($nombre,$appat,$apmat,$username,$email,$password,$ocupacion,$edad,$sexo){
         $data = Array("nombre"=>$nombre,
                       "appat"=>$appat,
