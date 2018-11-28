@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Eventos extends CI_Controller {
+class Evento extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->library('session');
@@ -18,9 +18,22 @@ class Eventos extends CI_Controller {
         $this->load->model('mboleto');
         $this->load->library('form_validation');
     }
-    public function index()
+    public function index($idEvento=null)
     {
-      echo "Evento index";
+      if(!$idEvento)
+          redirect('Dashboard');;//Debe mandar la id!
+      $evento= $this->mevento->getEvento($idEvento);
+      if(!$evento){
+          redirect('Dashboard');
+      }
+      
+      $data = array("title"=>"EVENTOS");
+      $data["evento"] = $evento;
+      $data['boleto'] = $this->mboleto->getBoleto($this->usuario->id_usuario,$idEvento);
+
+      $this->load->view('headers/vheader',array("title"=>"hola mundo"));
+      $this->load->view('vverevento',$data);
+      $this->load->view('footers/vfooter');
     }
     public function ajax_inscribir()
     {
