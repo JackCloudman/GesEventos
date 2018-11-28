@@ -58,6 +58,23 @@ class Admin extends CI_Controller {
     $this->load->view('Admin/vformevento');
     $this->load->view('footers/vfooter');
   }
+
+  public function eventos_editar($idEvento){
+      $usuario = $this->usuario;
+      $name = $this->musuario->getName($usuario->id_usuario);
+      $data1 = array("title"=>"Admin Dashboard");
+      $data1["name"] = $name["nombre"]." ".$name["appat"];
+
+      $evento= $this->mevento->getEvento($idEvento);
+      if($this->mescuela->getEscuelaByAdmin($usuario->id_usuario)->id_escuela!=$evento->escuela)
+        redirect("Admin");
+      $data = array("title"=>"EVENTOS");
+      $data["evento"] = $evento;
+      $this->load->view('headers/vheaderadmin',$data1);
+      $this->load->view('Admin/vformeventoEDIT',$data);
+      $this->load->view('footers/vfooter');
+  }
+
   public function dob_check($str){
     if (!DateTime::createFromFormat('Y-m-d', $str)) { //yes it's YYYY-MM-DD
         $this->form_validation->set_message('dob_check', 'The {field} has not a valid date format');
@@ -69,25 +86,40 @@ class Admin extends CI_Controller {
   public function ajax_create_evento(){
       $respuesta = Array();
       $usuario = $this->usuario;
+      $id = $usuario->id_usuario;
+      header('Content-Type: application/json');
   		if(!$this->input->post()){
         $respuesta["codigo"] = 1;
   			$respuesta["respuesta"] = "Sin parametros";
         $respuesta["errores"] = "Sin parametros!";
-  		}else{
-        $this->form_validation->set_rules('nombre_evento','Nombre Evento','required');
-        $this->form_validation->set_rules('descripcion','Descripcion','required');
-        $this->form_validation->set_rules('fecha','Fecha','required|callback_dob_check');
-        $this->form_validation->set_rules('hora_inicio','Hora','required|trim|min_length[7]|max_length[8]');
-        $this->form_validation->set_data($this->input->post());
+        echo json_encode($respuesta);
+        return;
+  		}
+      $this->form_validation->set_rules('nombre_evento','Nombre Evento','required');
+      $this->form_validation->set_rules('descripcion','Descripcion','required');
+      $this->form_validation->set_rules('fecha','Fecha','required|callback_dob_check');
+      $this->form_validation->set_rules('hora_inicio','Hora','required|trim|min_length[7]|max_length[8]');
+      $this->form_validation->set_rules('boletos', 'Numero de boletos', 'required|regex_match[/^[1-9]{1}[0-9]{0,5}$/]');
+      $this->form_validation->set_data($this->input->post());
 
-        $validate = $this->form_validation->run();
+      $validate = $this->form_validation->run();
         if(!$validate){
           $respuesta["codigo"] = 2;
   				$respuesta["respuesta"] = "Te hace falta llenar algunos campos";
   				$respuesta["errores"] = validation_errors();
-        }else{
-          # Asignación a variables
-          $id = $usuario->id_usuario;
+          echo json_encode($respuesta);
+          return;
+        }
+        $data = $this->input->post();
+
+        if(date('Y-m-d')>date('Y-m-d',strtotime($data['fecha']))){
+          $respuesta["codigo"] = 1;
+  				$respuesta["respuesta"] = "La fecha del evento no es valida.";
+  				$respuesta["errores"] = Array("El evento tiene fecha mayor o igual al día de hoy.");
+          echo json_encode($respuesta);
+          return;
+        }
+        if (!empty($_FILES['foto']['name'])){
           $nombreArchivo = $id."_".date("dmYHis")."_".md5(getDate()[0]);
           # Configuración de la librería "upload"
           $config['upload_path']   = './assets/eventos/fotos/';
@@ -97,32 +129,32 @@ class Admin extends CI_Controller {
           $config['overwrite'] = true;
           $config['max_size'] = 10240;
           $config['remove_spaces'] = true;
-          $this -> load -> library('upload', $config);
+          $this->load-> library('upload', $config);
           if (!($this->upload ->do_upload('foto'))){
-      			$respuesta['codigo'] = "1";
+            $respuesta['codigo'] = "1";
             $respuesta["respuesta"] = "Error al subir la imagen!";
             $respuesta["errores"] = $this->upload->display_errors();
-      		}else{
+            echo json_encode($respuesta);
+            return;
+          }else{
             $nombreArchivo = $this->upload->data()["file_name"];
-            $data = $this->input->post();
-            $data["escuela"] = $this->mescuela->getEscuelaByAdmin($usuario->id_usuario)->id_escuela;
-            $data["foto"] = $nombreArchivo;
-            $result =  $this->mevento->addEvento($data);
-            if($result){
-              $respuesta["codigo"] = 0;
-  						$respuesta["respuesta"] = "Sin errores";
-  						$respuesta["errores"] = Array();
-            }else{
-              $respuesta["codigo"] = 3;
-  						$respuesta["respuesta"] = "No se pudo crear el evento!";
-  						$respuesta["errores"] = "<p>No se pudo crear el evento :(</p>";
-            }
+          }
+        }else{
+          $nombreArchivo = "default.jpg";
         }
-      }
-
-      }
-      header('Content-Type: application/json');
-		  echo json_encode($respuesta);
+        $data["escuela"] = $this->mescuela->getEscuelaByAdmin($usuario->id_usuario)->id_escuela;
+        $data["foto"] = $nombreArchivo;
+        $result =  $this->mevento->addEvento($data);
+        if($result){
+          $respuesta["codigo"] = 0;
+  				$respuesta["respuesta"] = "Sin errores";
+  				$respuesta["errores"] = Array();
+        }else{
+          $respuesta["codigo"] = 3;
+  				$respuesta["respuesta"] = "No se pudo crear el evento!";
+  				$respuesta["errores"] = "<p>No se pudo crear el evento :(</p>";
+        }
+		    echo json_encode($respuesta);
   }
 	public function ajax_delete_evento(){
 		$respuesta = Array();
@@ -162,4 +194,72 @@ class Admin extends CI_Controller {
  	  echo json_encode($respuesta);
 
 	}
+  public function ajax_edit_evento(){
+      $respuesta = Array();
+      $usuario = $this->usuario;
+      $id = $usuario->id_usuario;
+      header('Content-Type: application/json');
+  		if(!$this->input->post()){
+        $respuesta["codigo"] = 1;
+  			$respuesta["respuesta"] = "Sin parametros";
+        $respuesta["errores"] = "Sin parametros!";
+        echo json_encode($respuesta);
+        return;
+  		}
+      $this->form_validation->set_rules('nombre_evento','Nombre Evento','required');
+      $this->form_validation->set_rules('descripcion','Descripcion','required');
+      $this->form_validation->set_rules('fecha','Fecha','required|callback_dob_check');
+      $this->form_validation->set_rules('hora_inicio','Hora','required|trim|min_length[7]|max_length[8]');
+      $this->form_validation->set_data($this->input->post());
+
+      $validate = $this->form_validation->run();
+        if(!$validate){
+          $respuesta["codigo"] = 2;
+  				$respuesta["respuesta"] = "Te hace falta llenar algunos campos";
+  				$respuesta["errores"] = validation_errors();
+          echo json_encode($respuesta);
+          return;
+        }
+        $data = $this->input->post();
+        if(date('Y-m-d')>date('Y-m-d',strtotime($data['fecha']))){
+          $respuesta["codigo"] = 1;
+  				$respuesta["respuesta"] = "La fecha del evento no es valida.";
+  				$respuesta["errores"] = Array("El evento tiene fecha mayor o igual al día de hoy.");
+          echo json_encode($respuesta);
+          return;
+        }
+        if (!empty($_FILES['foto']['name'])){
+          $nombreArchivo = $id."_".date("dmYHis")."_".md5(getDate()[0]);
+          # Configuración de la librería "upload"
+          $config['upload_path']   = './assets/eventos/fotos/';
+          $config['allowed_types'] = 'jpg|png|jpeg|JPG|PNG|JPEG';
+          $config['file_name'] = $nombreArchivo;
+          $config['file_ext_tolower'] = false;
+          $config['overwrite'] = true;
+          $config['max_size'] = 10240;
+          $config['remove_spaces'] = true;
+          $this->load-> library('upload', $config);
+          if (!($this->upload ->do_upload('foto'))){
+            $respuesta['codigo'] = "1";
+            $respuesta["respuesta"] = "Error al subir la imagen!";
+            $respuesta["errores"] = $this->upload->display_errors();
+            echo json_encode($respuesta);
+            return;
+          }else{
+            $data["foto"] = $this->upload->data()["file_name"];
+          }
+        }
+        $data["escuela"] = $this->mescuela->getEscuelaByAdmin($usuario->id_usuario)->id_escuela;
+        $result =  $this->mevento->EditarEvento($data);
+        if($result){
+          $respuesta["codigo"] = 0;
+  				$respuesta["respuesta"] = "Sin errores";
+  				$respuesta["errores"] = Array();
+        }else{
+          $respuesta["codigo"] = 3;
+  				$respuesta["respuesta"] = "No se pudo crear el evento!";
+  				$respuesta["errores"] = "<p>No se pudo crear el evento :(</p>";
+        }
+		    echo json_encode($respuesta);
+  }
 }
