@@ -41,7 +41,7 @@ desired effect
       <div class="col-md-15">
           <div class="box box-solid" align="center">
             <div class="box-header with-border">
-              <h3 class="box-title">Diagramas</h3>
+              <h3 class="box-title">Arquitectura del sistema</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

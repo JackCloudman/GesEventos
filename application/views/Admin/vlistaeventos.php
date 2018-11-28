@@ -23,6 +23,7 @@
                 <th>Nombre del evento</th>
                 <th>Fecha del evento</th>
                 <th>Escuela</th>
+                <th>Boletos</th>
                 <th>Accion</th>
               </tr>
               </thead>
@@ -34,11 +35,14 @@
                 <td><?=$e->nombre_evento?></td>
                 <td><?=$e->fecha?></td>
                 <td><?=$e->nombre?></td>
-                <th>
+                <td><?=$e->inscritos?>/<?=$e->boletos?></td>
+                <td>
                   <h4>
       <i class= "fa fa-trash del" data-evento="<?=$e->id_evento;?>"></i>
+      <i class= "fa fa-pencil edit" data-evento="<?=$e->id_evento;?>"></i>
+      <a href="<?=base_url()?>Comentarios/lista_comentarios/<?= $e->id_evento?>" id="verComentarios"><i class="fa fa-eye"></i></a>
                 </h4>
-                </th>
+              </td>
               </tr>
               <?php }?>
               </tbody>
@@ -66,6 +70,10 @@
 <script>
 $(function () {
   $('#escuelas').DataTable();
+  $(".edit").on('click',function(e){
+    var evento = $(this).attr("data-evento");
+    $(location).attr('href', '<?=base_url()?>Admin/eventos/editar/'+evento)
+  });
   $(".del").on('click',function(e){
     var evento = $(this).attr("data-evento");
     $.ajax({

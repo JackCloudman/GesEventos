@@ -57,5 +57,6 @@ $route['Superadmin/escuelas/crear'] = 'Superadmin/escuelas_crear';
 $route['Superadmin/eventos'] = 'Superadmin/eventos_index';
 $route['Admin/eventos'] = 'Admin/eventos_index';
 $route['Admin/eventos/crear'] = 'Admin/eventos_crear';
+$route['Admin/eventos/editar/(:any)'] = 'Admin/eventos_editar/$1';
 $route['Evento/ajax_inscribir'] = "Evento/ajax_inscribir";
 $route['Evento/(:any)'] = "Evento/index/$1";

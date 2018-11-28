@@ -10,13 +10,15 @@ class Comentarios extends CI_Controller {
             redirect('dashboard');  
         }
         $this->load->model('Mcomentario');
+        $this->load->model('mevento');
     }
 
-    public function index()
+    public function Dejar_comentario()
     {
+        $data["id_evento"] = $this->uri->segment(3);
+        $evento= $this->mevento->getEvento($data["id_evento"]);
         $data = array("title"=>"Comentarios");
-        //$data["nom_evento"] = $this->Mcomentario->getNombreEvento();;
-        $data["nom_evento"] = "GBF";
+        $data["nom_evento"] = $evento;
         $this->load->view('headers/vheader',$data);
         $this->load->view('vComentario');
         $this->load->view('footers/vfooter');
@@ -27,19 +29,23 @@ class Comentarios extends CI_Controller {
             echo "Vacio";
         }
         $data = $this->input->post();
+        $param["id_evento"] = $this->uri->segment(3);
         $param['usuario'] = $this->usuario->id_usuario;
         $param['texto'] = $this->input->post('txtcomentario');
         if($this->Mcomentario->verificarUsuario($param['usuario'])) //Para que solo se pueda meter un comentario por usuario
             $this->Mcomentario->guardarComentario($param);
-        redirect(Dashboard);
+        redirect('dashboard');
     }
 
     public function lista_comentarios(){
         if($this->usuario->nivel<2){
             redirect('dashboard');  
         }
-        $coment=$this->Mcomentario->getComentarios();
+        $data["evento"] = $this->uri->segment(3);
+        $coment=$this->Mcomentario->getComentarios($data["evento"]);
+        $evento= $this->mevento->getEvento($data["evento"]);
         $data = array("title"=>"Comentarios");
+        $data["nom_evento"] = $evento;
         $data["coment"] = $coment;
         $this->load->view('headers/vheader',$data);
         $this->load->view('vComentarioLista');
@@ -50,9 +56,10 @@ class Comentarios extends CI_Controller {
         if($this->usuario->nivel<2){
             redirect('dashboard');  
         }
-        $data = $this->uri->segment(3);
+        $data = $this->uri->segment(4);
         $coment=$this->Mcomentario->borrar_Comentarios($data);
-        redirect("Comentarios/lista_comentarios");
+        $evento = $this->uri->segment(3);;
+        redirect("Comentarios/lista_comentarios/$evento");
     }
 
 }

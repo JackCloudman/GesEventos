@@ -71,7 +71,7 @@
                                 <div class="row form-group">
                                     <div class="col-md-12" id="direccion" style="...">
                                         <h3>Direcci&oacute;n</h3>
-                                        <?= $evento->escuela ?> en el auditorio <?= $evento->auditorio ?>
+                                        <?= $evento->nombre ?> en el auditorio <?= $evento->auditorio ?>
 
                                     </div>
                                 </div>
@@ -79,10 +79,15 @@
                         </div>
                         <div class="row" style="margin-top: 30px;">
                             <div class="col-md-offset-4">
-                              <?if(!$boleto){?>
-                                <button type="button" class="btn btn-primary" data-evento="<?=$evento->id_evento?>" id="inscribir">Inscribirse a evento</button>
+                              <?if(!$boleto){
+                                if($boletos_restantes<1){
+                                ?>
+                                <button type="button" class="btn btn-block btn-danger btn-lg" >Ya no hay boletos disponibles :(</button>
                                 <?}else{?>
+                                <button type="button" class="btn btn-primary" data-evento="<?=$evento->id_evento?>" id="inscribir">Inscribirse a evento</button>
+                                <?}}else{?>
                                   <button type="button" class="btn disabled btn-success" >Ya estas inscrito a este evento</button>
+                                  <a href="<?=base_url()?>Comentarios/Dejar_comentario/<?= $evento->id_evento?>" id="dejar_comentario"><button type="button" class="btn btn-primary">Dejar un comentario sobre el evento</button></a>
                                   <?}?>
                             </div>
                         </div>

@@ -11,25 +11,18 @@ class Mcomentario extends CI_Model
 	}
 
 	public function guardarComentario($param){
-		//Ya inserta comentarios
-
-		/*$this->db->select('evento');
-		$this->db->from('comentarios');
-		$this->db->join('eventos', 'eventos.id_evento = comentarios.evento');
-		$this->db->where(); //Aqui iria el boleto para unir el id del evento con el comentario
-		$param['evento']=$this->db->get();*/
-		$param['evento'] = 1;
 		$data = Array("usuario"=>$param['usuario'],
-                      "evento"=>$param['evento'],
+                      "evento"=>$param['id_evento'],
                       "texto"=>$param['texto']
                   );
 		$this->db->insert('comentarios',$data);
 	}
 
-	public function getComentarios(){
-		$this->db->select('usuario, nombre, appat, apmat, id_comentario, texto');
+	public function getComentarios($data){
+		$this->db->select('usuario, nombre, appat, apmat, texto, evento, id_comentario');
 		$this->db->from('comentarios');
 		$this->db->join('usuarios', 'comentarios.usuario = usuarios.id_usuario');
+		$this->db->where('evento',$data);
 		$coment = $this->db->get();
 		if(!isset($coment))
 			return Array();
@@ -49,13 +42,4 @@ class Mcomentario extends CI_Model
 		return false;
 	}
 
-	public function getNombreEvento(){ 
-		$this->db->select('id_evento, nombre_evento, evento');
-		$this->db->from('comentarios');
-		$this->db->join('eventos', 'comentarios.evento = eventos.id_evento');
-		$coment = $this->db->get_where();//Aqui iria el boleto para unir el id del evento con el comentario
-		if(!isset($coment))
-			return Array();
-		return $coment;
-	}
 }

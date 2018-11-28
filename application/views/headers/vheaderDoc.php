@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>GesEventos | <?=$title?></title>
+  <title>GesDocumentacion</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?=base_url()?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -71,7 +71,7 @@ desired effect
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>G</b>ES</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Ges</b>Eventos</span>
+      <span class="logo-lg"><b>Ges</b>Doc</span>
     </a>
 
     <!-- Header Navbar -->
@@ -80,45 +80,6 @@ desired effect
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-      <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <!-- The user image in the navbar-->
-              <img src="<?=base_url()?>assets/dist/img/escom.png" class="user-image" alt="User Image">
-              <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">ESCOM - IPN</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- The user image in the menu -->
-              <li class="user-header">
-                <img src="<?=base_url()?>assets/dist/img/escom.png" class="img-circle" alt="User Image">
-
-                <p>
-                  ESCOM - IPN
-                  <small>Miembro desde 2018</small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
-        </ul>
-      </div>
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
@@ -139,7 +100,7 @@ desired effect
         <li><a href="<?=base_url()?>Documentacion/DocespecifReq"><span>Especificación de requisitos</span></a></li>
         <li><a href="<?=base_url()?>Documentacion/DocCasosUso"><span>Modelo de casos de uso</span></a></li>
         <li><a href="<?=base_url()?>Documentacion/DocMarcoDes"><span>Marco de desarrollo.</span></a></li>
-        <li><a href="<?=base_url()?>Documentacion/DocDiagrama"><span>Diagramas</span></a></li>
+        <li><a href="<?=base_url()?>Documentacion/DocDiagrama"><span>Arquitectura del sistema</span></a></li>
         <li><a href="<?=base_url()?>Dashboard"><span>Salir a Dashboard</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->

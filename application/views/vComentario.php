@@ -3,17 +3,17 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
     <section class="content-header">
-      <h2 align="center">
+      <h3 align="center">
         Comenta algo sobre el evento
-      </h2>
+      </h3>
     </section>
     <!-- Content Header (Page header) -->
     <!-- Main content -->
     <section class="content container-fluid">
-      <form action="<?=base_url()?>Comentarios/enviar_comentario" method="post">
+      <form action="<?=base_url()?>Comentarios/enviar_comentario/<?= $nom_evento->id_evento ?>" method="post">
         <div class="box box-success">
           <div class="box-header">
-            <h4 align="right">Nombre del evento</h4>
+            <h3 align="right"><?= $nom_evento->nombre_evento ?></h3>
           </div>
           <div class="box-body">
             <div class="form-group">
