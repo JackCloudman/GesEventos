@@ -40,6 +40,7 @@
                   <h4>
       <i class= "fa fa-trash del" data-evento="<?=$e->id_evento;?>"></i>
       <i class= "fa fa-pencil edit" data-evento="<?=$e->id_evento;?>"></i>
+      <a href="<?=base_url()?>Comentarios/lista_comentarios/<?= $e->id_evento?>" id="verComentarios"><i class="fa fa-eye"></i></a>
                 </h4>
               </td>
               </tr>
