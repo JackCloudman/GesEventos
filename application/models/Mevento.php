@@ -21,6 +21,18 @@ class Mevento extends CI_Model
 				$this->db->where('t2.id_escuela = t1.escuela');
 				return $this->db->get()->result();
 	}
+  public function search($coincidencia){
+    $this->db->select('*')
+         ->from('Escuelas')
+         ->join('Eventos', 'Eventos.escuela = Escuelas.id_escuela')
+         ->where("Eventos.fecha>=CURDATE()")
+         ->like("Eventos.nombre_evento",$coincidencia)
+         ->or_like("Eventos.descripcion",$coincidencia)
+         ->or_like("Eventos.ponente",$coincidencia)
+         ->or_like("Escuelas.nombre",$coincidencia)
+         ->or_like("Eventos.auditorio",$coincidencia);
+    return $this->db->get()->result();
+  }
 	/*public function allEscuelas()
 	{
 		$this->db->select('*');
