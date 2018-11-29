@@ -11,6 +11,7 @@ class Comentarios extends CI_Controller {
         }
         $this->load->model('Mcomentario');
         $this->load->model('mevento');
+        $this->load->model('musuario');
     }
 
     public function Dejar_comentario()
@@ -50,8 +51,12 @@ class Comentarios extends CI_Controller {
         $evento= $this->mevento->getEvento($data["evento"]);
         $data = array("title"=>"Comentarios");
         $data["nom_evento"] = $evento;
+        $name = $this->musuario->getName($this->usuario->id_usuario);
+        $data["name"] = $name["nombre"]." ".$name["appat"];
         $data["coment"] = $coment;
-        $this->load->view('headers/vheader',$data);
+
+
+        $this->load->view('headers/vheaderadmin',$data);
         $this->load->view('vComentarioLista');
         $this->load->view('footers/vfooter');
     }
