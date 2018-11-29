@@ -7,7 +7,7 @@ class Comentarios extends CI_Controller {
         parent::__construct();
         $this->usuario = $this->session->userdata("user");
         if(!$this->usuario){
-            redirect('dashboard');  
+            redirect('dashboard');
         }
         $this->load->model('Mcomentario');
         $this->load->model('mevento');
@@ -32,14 +32,18 @@ class Comentarios extends CI_Controller {
         $param["id_evento"] = $this->uri->segment(3);
         $param['usuario'] = $this->usuario->id_usuario;
         $param['texto'] = $this->input->post('txtcomentario');
-        if($this->Mcomentario->verificarUsuario($param['usuario'])) //Para que solo se pueda meter un comentario por usuario
-            $this->Mcomentario->guardarComentario($param);
+        $temp = Array(
+            "usuario" => $param["usuario"],
+            "evento"  => $param["id_evento"]
+          );
+        if($this->Mcomentario->verificarUsuario($temp)) //Para que solo se pueda meter un comentario por usuario
+          echo $this->Mcomentario->guardarComentario($param);
         redirect('dashboard');
     }
 
     public function lista_comentarios(){
         if($this->usuario->nivel<2){
-            redirect('dashboard');  
+            redirect('dashboard');
         }
         $data["evento"] = $this->uri->segment(3);
         $coment=$this->Mcomentario->getComentarios($data["evento"]);
@@ -54,7 +58,7 @@ class Comentarios extends CI_Controller {
 
     public function borrar_comentario(){
         if($this->usuario->nivel<2){
-            redirect('dashboard');  
+            redirect('dashboard');
         }
         $data = $this->uri->segment(4);
         $coment=$this->Mcomentario->borrar_Comentarios($data);

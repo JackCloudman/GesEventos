@@ -1,10 +1,10 @@
 <?php
 /**
- * 
+ *
  */
 class Mcomentario extends CI_Model
 {
-	
+
 	function __construct()
 	{
 		parent::__construct();
@@ -15,13 +15,14 @@ class Mcomentario extends CI_Model
                       "evento"=>$param['id_evento'],
                       "texto"=>$param['texto']
                   );
-		$this->db->insert('comentarios',$data);
+		$this->db->insert('Comentarios',$data);
+		return 1;
 	}
 
 	public function getComentarios($data){
 		$this->db->select('usuario, nombre, appat, apmat, texto, evento, id_comentario');
-		$this->db->from('comentarios');
-		$this->db->join('usuarios', 'comentarios.usuario = usuarios.id_usuario');
+		$this->db->from('Comentarios');
+		$this->db->join('Usuarios', 'Comentarios.usuario = Usuarios.id_usuario');
 		$this->db->where('evento',$data);
 		$coment = $this->db->get();
 		if(!isset($coment))
@@ -32,12 +33,13 @@ class Mcomentario extends CI_Model
 	public function borrar_Comentarios($data){
 		$col = Array("id_comentario"=>$data
                   );
-		$this->db->delete('comentarios',$col);
+		$this->db->delete('Comentarios',$col);
 	}
 
-	public function verificarUsuario($param){ 
-		$res = $this->db->get_where('comentarios', array('usuario' => $param));
-		if(!isset($res))
+	public function verificarUsuario($param){
+		$res = $this->db->get_where('Comentarios',$param);
+		$res = $res->row();
+		if(!$res)
 			return true;
 		return false;
 	}
