@@ -16,6 +16,7 @@ class Evento extends CI_Controller {
         $this->usuario = $this->session->userdata("user");
         $this->load->model('mevento');
         $this->load->model('mboleto');
+        $this->load->model('mcomentario');
         $this->load->library('form_validation');
     }
     public function index($idEvento=null)
@@ -26,11 +27,17 @@ class Evento extends CI_Controller {
       if(!$evento){
           redirect('Dashboard');
       }
+      $temp = Array(
+        "usuario" =>  $this->usuario->id_usuario,
+        "evento"  => $idEvento
+      );
 
       $data = array("title"=>"EVENTOS");
       $data["evento"] = $evento;
-      $data['boleto'] = $this->mboleto->getBoleto($this->usuario->id_usuario,$idEvento);
+      $data['boleto'] = $this->mboleto->getBoleto($temp["usuario"],$temp["evento"]);
+      $data['comentario'] = $this->mcomentario->verificarUsuario($temp);
       $data["boletos_restantes"] = $this->mevento->isdisponible($idEvento);
+
       $this->load->view('headers/vheader',array("title"=>"Informacion evento"));
       $this->load->view('vverevento',$data);
       $this->load->view('footers/vfooter');
