@@ -17,6 +17,7 @@ class Evento extends CI_Controller {
         $this->load->model('mevento');
         $this->load->model('mboleto');
         $this->load->library('form_validation');
+        $this->load->model('musuario');
     }
     public function index($idEvento=null)
     {
@@ -91,10 +92,14 @@ class Evento extends CI_Controller {
 
   }
   public function buscar($busqueda){
-    $eventos = $this->mevento->search(urldecode($busqueda));
-    foreach ($eventos as $e) {
-      print_r($e);
-      echo "<br>=====<br>";
-    }
+    $usuario = $this->usuario;
+
+    $datos['title'] = "Dashboard";
+    $datos['head'] = $this->musuario->getName($usuario->id_usuario);
+    $datos['eventos'] = $this->mevento->search(urldecode($busqueda));
+
+    $this->load->view('headers/vheaderuser',$datos);
+    $this->load->view('Guest/vdashboard');
+    $this->load->view('footers/vfooter');
   }
 }
