@@ -16,6 +16,7 @@ class Evento extends CI_Controller {
         $this->usuario = $this->session->userdata("user");
         $this->load->model('mevento');
         $this->load->model('mboleto');
+        $this->load->model('mcomentario');
         $this->load->library('form_validation');
     }
     public function index($idEvento=null)
@@ -26,12 +27,18 @@ class Evento extends CI_Controller {
       if(!$evento){
           redirect('Dashboard');
       }
-      
+      $temp = Array(
+        "usuario" =>  $this->usuario->id_usuario,
+        "evento"  => $idEvento
+      );
+
       $data = array("title"=>"EVENTOS");
       $data["evento"] = $evento;
-      $data['boleto'] = $this->mboleto->getBoleto($this->usuario->id_usuario,$idEvento);
+      $data['boleto'] = $this->mboleto->getBoleto($temp["usuario"],$temp["evento"]);
+      $data['comentario'] = $this->mcomentario->verificarUsuario($temp);
+      $data["boletos_restantes"] = $this->mevento->isdisponible($idEvento);
 
-      $this->load->view('headers/vheader',array("title"=>"hola mundo"));
+      $this->load->view('headers/vheader',array("title"=>"Informacion evento"));
       $this->load->view('vverevento',$data);
       $this->load->view('footers/vfooter');
     }
@@ -40,6 +47,7 @@ class Evento extends CI_Controller {
         $respuesta = Array();
         $data = $this->input->post();
         $usuario = $this->usuario;
+        header('Content-Type: application/json');
         if(!$data){
           $respuesta["codigo"] = 1;
           $respuesta["respuesta"] = "No hay informacion del evento";
@@ -60,6 +68,13 @@ class Evento extends CI_Controller {
               $respuesta["errores"] = Array("Este evento no esta disponible!");
             }else{
             if(!$this->mboleto->getBoleto($usuario->id_usuario,$data["id_evento"])){
+              if(!$this->mevento->isdisponible($data["id_evento"])){
+                $respuesta["codigo"] = -1;
+                $respuesta["respuesta"] = "Ya no hay boletos disponibles :(";
+                $respuesta["errores"] = Array("<p>Ya no hay boletos disponibles! :(</p>");
+                echo json_encode($respuesta);
+                return;
+              }
               $result = $this->mevento->inscribir($usuario->id_usuario,$data["id_evento"]);
               if($result){
                 $respuesta["codigo"] = 0;
@@ -78,8 +93,11 @@ class Evento extends CI_Controller {
             }
           }
         }
-        header('Content-Type: application/json');
    	    echo json_encode($respuesta);
     }
-}
+
+  }
+  public function test($id_evento){
+    print_r($this->mevento->isdisponible($id_evento));
+  }
 }

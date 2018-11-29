@@ -38,6 +38,7 @@ desired effect
         Documentacion
       </h1>
     </section>
+          
       <div class="col-md-15">
           <div class="box box-solid" align="center">
             <div class="box-header with-border">
@@ -45,68 +46,307 @@ desired effect
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-                <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="4" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="5" class=""></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item">
-                    <img src="<?=base_url()?>assets/dist/img/Diagrama_CU.png" width="70%" height="70%" alt="Diagrama de CU">
-                    <div class="carousel-outer">
-                      <br/>Diagrama Casos de Usos
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="<?=base_url()?>assets/dist/img/DiagramaClasesF.png" alt="Diagrama de clases">
+              <div class="box box-default collapsed-box box-solid">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Modelo del sistema con Casos de Uso, Clases y Paquetes</h4>
 
-                    <div class="carousel-outer">
-                      <br/>Diagrama de Clases
-                    </div>
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
                   </div>
-                  <div class="item active">
-                    <img src="<?=base_url()?>assets/dist/img/DejarComentario.png" alt="Diagrama de objCU1">
+                  <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div id="carousel-example-generic2" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic2" data-slide-to="4" class="active"></li>
+                      <li data-target="#carousel-example-generic2" data-slide-to="5" class=""></li>
+                      <li data-target="#carousel-example-generic2" data-slide-to="6" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="<?=base_url()?>assets/dist/img/Diagrama_CU.png" width="70%" height="70%" alt="Diagrama de CU">
 
-                    <div class="carousel-outer">
-                      <br/>Diagrama de Objetos CU: Dejar Comentario Caso 1
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="<?=base_url()?>assets/dist/img/DejarComentarioCaso2.png" alt="Diagrama de objCU1_2">
+                        <div class="carousel-outer">
+                          <br/>Modelo del sistema con Casos de Uso
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/DiagramaClasesF.png" alt="Diagrama de clases">
 
-                    <div class="carousel-outer">
-                      <br/>Diagrama de Objetos CU: Dejar Comentario Caso 2
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="<?=base_url()?>assets/dist/img/Inscribir_Evento.png" alt="Diagrama de objCU2">
+                        <div class="carousel-outer">
+                          <br/>Modelo del sistema con Clases
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/Diagrama de paquetes.png" alt="Diagrama de paquetes">
 
-                    <div class="carousel-outer">
-                      <br/>Diagrama de Objetos CU: Inscribir Evento
+                        <div class="carousel-outer">
+                          <br/>Modelo del sistema con Paquetes
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="item">
-                    <img src="<?=base_url()?>assets/dist/img/ModificarEvento.png" alt="Diagrama de objCU3">
-
-                    <div class="carousel-outer">
-                      <br/>Diagrama de Objetos CU: Modificar Evento
-                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic2" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic2" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
                   </div>
                 </div>
-                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                  <span class="fa fa-angle-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                  <span class="fa fa-angle-right"></span>
-                </a>
               </div>
+
+              <div class="box box-default collapsed-box box-solid">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Diagramas de Objetos</h4>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="3" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="<?=base_url()?>assets/dist/img/DejarComentario.png" alt="Diagrama de objCU1">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de Objetos CU: Dejar Comentario Caso 1
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/DejarComentarioCaso2.png" alt="Diagrama de objCU1_2">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de Objetos CU: Dejar Comentario Caso 2
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/Inscribir_Evento.png" alt="Diagrama de objCU2">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de Objetos CU: Inscribir Evento
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/ModificarEvento.png" alt="Diagrama de objCU3">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de Objetos CU: Modificar Evento
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box box-default collapsed-box box-solid">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Analisis de Robustez</h4>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div id="carousel-example-generic3" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic3" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="1" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="2" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="3" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="4" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="5" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="6" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="7" class=""></li>
+                      <li data-target="#carousel-example-generic3" data-slide-to="8" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="<?=base_url()?>assets/dist/img/Diagrama robustes crear escuela.png" alt="Diagrama robustes crear escuela">
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso Crear Evento 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso Cancelar Asistencia
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de robustez Caso de Uso 
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic3" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic3" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box box-default collapsed-box box-solid">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Diagramas de comunicacion</h4>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div id="carousel-example-genericNNNN" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-genericNNNN" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-genericNNNN" data-slide-to="1" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="<?=base_url()?>assets/dist/img/photo1.png" alt="Diagrama robustes crear escuela">
+                        <div class="carousel-outer">
+                          <br/>Diagrama 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/photo1.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama 
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-genericNNNN" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-genericNNNN" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box box-default collapsed-box box-solid">
+                <div class="box-header with-border">
+                  <h4 class="box-title">Diagramas de secuencia</h4>
+
+                  <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+                    </button>
+                  </div>
+                  <!-- /.box-tools -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                  <div id="carousel-example-genericNNNN" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-genericNNNN" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-genericNNNN" data-slide-to="1" class=""></li>
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src="<?=base_url()?>assets/dist/img/photo1.png" alt="Diagrama robustes crear escuela">
+                        <div class="carousel-outer">
+                          <br/>Diagrama 
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/photo1.png" alt="CancelarAsistenciaRobustez">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama 
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-genericNNNN" data-slide="prev">
+                      <span class="fa fa-angle-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-genericNNNN" data-slide="next">
+                      <span class="fa fa-angle-right"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <!-- /.box-body -->
-            
+            <!-- /.box-body -->  
           </div>
           <!-- /.box -->
         </div>
