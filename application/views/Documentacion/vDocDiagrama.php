@@ -176,9 +176,6 @@ desired effect
                       <li data-target="#carousel-example-generic3" data-slide-to="3" class=""></li>
                       <li data-target="#carousel-example-generic3" data-slide-to="4" class=""></li>
                       <li data-target="#carousel-example-generic3" data-slide-to="5" class=""></li>
-                      <li data-target="#carousel-example-generic3" data-slide-to="6" class=""></li>
-                      <li data-target="#carousel-example-generic3" data-slide-to="7" class=""></li>
-                      <li data-target="#carousel-example-generic3" data-slide-to="8" class=""></li>
                     </ol>
                     <div class="carousel-inner">
                       <div class="item active">
@@ -195,52 +192,24 @@ desired effect
                         </div>
                       </div>
                       <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+                        <img src="<?=base_url()?>assets/dist/img/InscribirEventoRobustez.png" alt="InscribirEventoRobustez">
 
                         <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
+                          <br/>Diagrama de robustez Caso de Uso Inscribir Evento
                         </div>
                       </div>
                       <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+                        <img src="<?=base_url()?>assets/dist/img/ModificarInfoEventoRobustez.png" alt="ModificarInfoEventoRobustez">
 
                         <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
+                          <br/>Diagrama de robustez Caso de Uso Modificar Informacion Evento
                         </div>
                       </div>
                       <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
+                        <img src="<?=base_url()?>assets/dist/img/MostrarCalendarioRobustez.png" alt="MostrarCalendarioRobustez">
 
                         <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
-
-                        <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
-
-                        <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
-
-                        <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
-                        </div>
-                      </div>
-                      <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
-
-                        <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
+                          <br/>Diagrama de robustez Caso de Uso Mostrar Calendario
                         </div>
                       </div>
                       <div class="item">
