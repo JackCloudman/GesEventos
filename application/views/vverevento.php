@@ -27,7 +27,7 @@
          <h4 class="modal-title">Finalizado!</h4>
        </div>
        <div class="modal-body">
-         <p>La escuela ha sido registrada con exito!</p>
+         <p>Has quedado inscrito correctamente, revisa tu correo para ver tu boleto!</p>
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-outline pull-left" id="success" data-dismiss="modal">Cerrar</button>
