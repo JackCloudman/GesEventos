@@ -17,6 +17,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?=base_url()?>assets/dist/css/skins/_all-skins.min.css">
+  <script src="<?=base_url()?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,12 +46,20 @@
             <li><a href="<?=base_url()?>Calendar"><i class="fa fa-calendar"></i> Calendario</a></li>
             <li><a href="<?=base_url()?>Documentacion"><i class="fa fa-book"></i> Documentacion</a></li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
+          <form id="search" method="POST" class="navbar-form navbar-left" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Buscar">
+              <input type="text" class="form-control" id="busqueda" name="busqueda" placeholder="Buscar">
             </div>
           </form>
         </div>
+        <script>
+        $(document).ready(function() {
+            $("#search").on("submit",function(e){
+              e.preventDefault()
+              window.location.href = "<?=base_url()?>Evento/buscar/"+$("#busqueda").val();
+            });
+        });
+        </script>
         <!-- /.navbar-collapse -->
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">

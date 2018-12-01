@@ -58,41 +58,14 @@
           </div>
           <!-- /.widget-user -->
         </div>
-      <?php }?>
+      <?php }
+      if(!$eventos){?>
           <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
-          <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <a href="#">
-            <div  class="widget-user-header bg-black" style="background: url('assets/dist/img/photo2.png') center center;background-size:100%">
-              <h3 class="widget-user-username">Toma de protesta</h3>
-              <h5 class="widget-user-desc"><i class="fa fa-map-marker"></i> Auditorio ESCOM</h5>
-            </div>
-            </a>
-            <div class="box-footer">
-              <div class="row">
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header"><h3>11-09-1900</h3></h5>
-                    <span class="description-text"><h4><i class="fa fa-clock-o"></i> 9:50</h4> </span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-                <div class="col-sm-6 border-right">
-                  <div class="description-block">
-                    <h5 class="description-header">Descripcion</h5>
-                    <span ><i></i> pRUEBAsdA391293AA</span>
-                  </div>
-                  <!-- /.description-block -->
-                </div>
-                <!-- /.col -->
-              </div>
-              <!-- /.row -->
-            </div>
-          </div>
+                  <h1>No se encuentran eventos :(</h1>
           <!-- /.widget-user -->
         </div>
+                <?}?>
 
       </div>
             </div>

@@ -18,6 +18,7 @@ class Evento extends CI_Controller {
         $this->load->model('mboleto');
         $this->load->model('mcomentario');
         $this->load->library('form_validation');
+        $this->load->model('musuario');
     }
     public function index($idEvento=null)
     {
@@ -97,7 +98,15 @@ class Evento extends CI_Controller {
     }
 
   }
-  public function test($id_evento){
-    print_r($this->mevento->isdisponible($id_evento));
+  public function buscar($busqueda){
+    $usuario = $this->usuario;
+
+    $datos['title'] = "Dashboard";
+    $datos['head'] = $this->musuario->getName($usuario->id_usuario);
+    $datos['eventos'] = $this->mevento->search(urldecode($busqueda));
+
+    $this->load->view('headers/vheaderuser',$datos);
+    $this->load->view('Guest/vdashboard');
+    $this->load->view('footers/vfooter');
   }
 }
