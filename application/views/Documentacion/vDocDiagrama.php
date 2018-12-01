@@ -175,7 +175,6 @@ desired effect
                       <li data-target="#carousel-example-generic3" data-slide-to="2" class=""></li>
                       <li data-target="#carousel-example-generic3" data-slide-to="3" class=""></li>
                       <li data-target="#carousel-example-generic3" data-slide-to="4" class=""></li>
-                      <li data-target="#carousel-example-generic3" data-slide-to="5" class=""></li>
                     </ol>
                     <div class="carousel-inner">
                       <div class="item active">
@@ -212,13 +211,6 @@ desired effect
                           <br/>Diagrama de robustez Caso de Uso Mostrar Calendario
                         </div>
                       </div>
-                      <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
-
-                        <div class="carousel-outer">
-                          <br/>Diagrama de robustez Caso de Uso 
-                        </div>
-                      </div>
                     </div>
                     <a class="left carousel-control" href="#carousel-example-generic3" data-slide="prev">
                       <span class="fa fa-angle-left"></span>
@@ -249,7 +241,6 @@ desired effect
                       <li data-target="#carousel-example-generic4" data-slide-to="2" class=""></li>
                       <li data-target="#carousel-example-generic4" data-slide-to="3" class=""></li>
                       <li data-target="#carousel-example-generic4" data-slide-to="4" class=""></li>
-                      <li data-target="#carousel-example-generic4" data-slide-to="5" class=""></li>
                     </ol>
                     <div class="carousel-inner">
                       <div class="item active">
@@ -286,13 +277,6 @@ desired effect
                           <br/>Diagrama de comunicacion Caso de Uso Mostrar Calendario
                         </div>
                       </div>
-                      <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaRobustez.png" alt="CancelarAsistenciaRobustez">
-
-                        <div class="carousel-outer">
-                          <br/>Diagrama de comunicacion Caso de Uso 
-                        </div>
-                      </div>
                     </div>
                     <a class="left carousel-control" href="#carousel-example-generic4" data-slide="prev">
                       <span class="fa fa-angle-left"></span>
@@ -316,30 +300,39 @@ desired effect
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <div id="carousel-example-genericNNNN" class="carousel slide" data-ride="carousel" data-interval="false">
+                  <div id="carousel-example-generic5" class="carousel slide" data-ride="carousel" data-interval="false">
                     <ol class="carousel-indicators">
-                      <li data-target="#carousel-example-genericNNNN" data-slide-to="0" class="active"></li>
-                      <li data-target="#carousel-example-genericNNNN" data-slide-to="1" class=""></li>
+                      <li data-target="#carousel-example-generic5" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic5" data-slide-to="1" class=""></li>
+                      <li data-target="#carousel-example-generic5" data-slide-to="2" class=""></li>
                     </ol>
                     <div class="carousel-inner">
                       <div class="item active">
-                        <img src="<?=base_url()?>assets/dist/img/photo1.png" alt="Diagrama robustes crear escuela">
+                        <img src="<?=base_url()?>assets/dist/img/CancelarAsistenciaSecuencia.png" alt="CancelarAsistenciaSecuencia">
+
                         <div class="carousel-outer">
-                          <br/>Diagrama 
+                          <br/>Diagrama de secuencia Caso de Uso Cancelar Asistencia
                         </div>
                       </div>
                       <div class="item">
-                        <img src="<?=base_url()?>assets/dist/img/photo1.png" alt="CancelarAsistenciaRobustez">
+                        <img src="<?=base_url()?>assets/dist/img/InscribirEventoSecuencia.png" alt="InscribirEventoSecuencia">
 
                         <div class="carousel-outer">
-                          <br/>Diagrama 
+                          <br/>Diagrama de secuencia Caso de Uso Inscribir Evento
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="<?=base_url()?>assets/dist/img/ModificarInfoEventoSecuencia.png" alt="ModificarInfoEventoSecuencia">
+
+                        <div class="carousel-outer">
+                          <br/>Diagrama de secuencia Caso de Uso Modificar Informacion Evento
                         </div>
                       </div>
                     </div>
-                    <a class="left carousel-control" href="#carousel-example-genericNNNN" data-slide="prev">
+                    <a class="left carousel-control" href="#carousel-example-generic5" data-slide="prev">
                       <span class="fa fa-angle-left"></span>
                     </a>
-                    <a class="right carousel-control" href="#carousel-example-genericNNNN" data-slide="next">
+                    <a class="right carousel-control" href="#carousel-example-generic5" data-slide="next">
                       <span class="fa fa-angle-right"></span>
                     </a>
                   </div>
