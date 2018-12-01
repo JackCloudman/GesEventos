@@ -19,6 +19,22 @@ class Evento extends CI_Controller {
         $this->load->model('mcomentario');
         $this->load->library('form_validation');
         $this->load->model('musuario');
+        #Configuracion del Email
+        $this->load->library('email');
+        $this->load->config('mail');
+        $email_settings = $this->config->item('email');
+        $this->email->initialize($email_settings);
+        #Configuracion Mpdf
+        require_once(APPPATH . '../vendor/autoload.php');
+        $this->mpdf = new \Mpdf\Mpdf([
+          'margin_left' => 20,
+          'margin_right' => 15,
+          'margin_top' => 25,
+          'margin_bottom' => 25,
+          'margin_header' => 10,
+          'margin_footer' => 10,
+          'showBarcodeNumbers' => FALSE
+        ]);
     }
     public function index($idEvento=null)
     {
@@ -78,9 +94,9 @@ class Evento extends CI_Controller {
               }
               $result = $this->mevento->inscribir($usuario->id_usuario,$data["id_evento"]);
               if($result){
+                $this->enviarBoleto($data["id_evento"]);
                 $respuesta["codigo"] = 0;
                 $respuesta["respuesta"] = "Inscripcion correcta";
-                $respuesta["errores"] = Array();
               }
               else{
                 $respuesta["codigo"] = 1;
@@ -95,6 +111,28 @@ class Evento extends CI_Controller {
           }
         }
    	    echo json_encode($respuesta);
+    }
+  }
+  private function enviarBoleto($id_evento){
+    $boleto = $this->mboleto->getBoleto($this->usuario->id_usuario,$id_evento);
+    if(!$boleto)
+      return false;
+    $boleto = $this->mboleto->getAllinfo($boleto->id_boleto);
+    $html=$this->load->view('Guest/vboleto',Array("boleto"=>$boleto),true);
+    $mpdf = $this->mpdf;
+    $mpdf->WriteHTML($html);
+    $content = $mpdf->Output('', 'S');
+    $this->email->attach($content, 'attachment',$boleto->qr, 'application/pdf');
+    $this->email->from("no-reply@juanjoserv.com");
+    $this->email->subject("Aqui esta el tu boleto!");
+    $this->email->message("Adjuntamos el boleto para asistir al evento: ".$boleto->nombre_evento);
+    $this->email->to($boleto->correo);
+    $result = $this->email->send();
+    if($result){
+      return true;
+    }
+    else{
+      return false;
     }
 
   }
