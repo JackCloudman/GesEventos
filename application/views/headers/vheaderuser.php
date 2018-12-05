@@ -64,6 +64,39 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
+
+            <!-- NAV DE EVENTOS--->
+            <li class="dropdown messages-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-history"></i>
+              <span class="label label-success">4</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">Tus eventos</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <?php foreach ($my_events as $event) {?>
+                  <li><!-- start message -->
+                    <a href="<?php echo base_url();?>Evento/<?php echo $event->id_evento;?>">
+                      <div class="pull-left">
+                        <img src="<?=base_url()?>assets/eventos/fotos/<?=$event->foto?>" class="img-circle" alt="User Image">
+                      </div>
+                      <h4><?php echo $event ->nombre_evento ?>
+              
+                        <small><i class="fa fa-calendar"></i> <?php echo $event ->fecha?></small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <!-- end message -->
+                  <?php } ?>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">Memento mori</a></li>
+            </ul>
+          </li>
+            <!-- FIN NAV EVENTOS--->
             <!-- User Account Menu -->
             <li class="dropdown user user-menu">
               <!-- Menu Toggle Button -->
